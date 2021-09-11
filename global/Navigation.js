@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Nav, Navbar } from "react-bootstrap";
+import {HOST} from "../env/env"
 import Link from "next/link";
 const style = {
 	logoSize: { height: "45px", width: "45px" },
