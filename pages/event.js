@@ -10,7 +10,7 @@ function Events() {
 
 	useEffect(() => {
 		window.scroll(0, 0);
-		latestEvent();
+		latestEvent(state.events);
 	}, [state.events]);
 
 	const latestEvent = () => {

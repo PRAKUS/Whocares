@@ -3,6 +3,8 @@ import { Card, Col, Row } from "react-bootstrap";
 import { ImLocation2, ImClock } from "react-icons/im";
 import Link from "next/link";
 
+import {HOST} from "../../env/env"
+
 const EventCard = (props) => {
 	const [month, setmonth] = useState();
 	const [events, setEvent] = useState({
@@ -26,7 +28,7 @@ const EventCard = (props) => {
 			let program = props.event;
 			if (program != undefined) {
 				setEvent(program);
-				timeFormater();
+				timeFormater(events.startdate);
 			}
 		} catch (err) {
 			console.log(err);
@@ -57,10 +59,10 @@ const EventCard = (props) => {
 	};
 	return (
 		<Col key={props.key} xsm={12} sm={12} md={6} lg={4} className='mt-4 cursor'>
-			<Link href={`eventdetail/${events.id}`}>
+			<Link href={`eventdetail/${events.id}`} passHref>
 				<Card className=' overflow-hidden eventimgbg' >
 					<Card.Img
-						src={`http://localhost:1337${events.headerimage.formats.medium.url}`}
+						src={`${HOST}${events.headerimage.formats.medium.url}`}
 						className='h-100 w-100' 
 					/>
 					<Card.ImgOverlay className='banner-overlay'>

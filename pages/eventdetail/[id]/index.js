@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState} from "react";
 // import { useRouter } from "next/router";
 import { Row, Col, Image, Card } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
@@ -9,7 +9,7 @@ import { CommentForm, Comment } from "../../../global/index";
 import axios from "axios";
 
 let endpoints="events"
-const eventdetail = ({ post }) => {
+const Eventdetail = ({ post }) => {
 	let [commentchecker,setComment]=useState(post.comments)
 
 	const commentHandler=async(req)=>{
@@ -36,6 +36,7 @@ const endpoint={name:endpoints,value:{post}}
 							<Image
 								className='w-100 '
 								src={`http://localhost:1337${post.headerimage.url}`}
+								alt="coverimage"
 							/>
 							<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
 								<Card.Text className='h1 text-white'>{post.Name}</Card.Text>
@@ -82,7 +83,7 @@ const endpoint={name:endpoints,value:{post}}
 								<div className="border p-4">
 								<CommentForm endpoints={endpoint}  commentrefresh={commentHandler}/>
 								<div className='mt-3' >
-									<p className="myprimary-text">People's Thoughts:-</p>
+									<p className="myprimary-text">Peoples Thoughts:-</p>
 									<div style={{maxHeight:"300px",overflow:"scroll"}}>
 									{commentchecker.length>0?commentchecker.map((comment,index)=>{
 										return (<Comment key={index} name={comment.name} comment={comment.comment}/>)
@@ -115,4 +116,4 @@ export async function getServerSideProps(context) {
 	};
 }
 
-export default eventdetail;
+export default Eventdetail;

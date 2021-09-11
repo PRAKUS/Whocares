@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col, Form, Button, Image } from "react-bootstrap";
+import { Card, Row, Col,Image } from "react-bootstrap";
 import { IoFastFood, IoPeople } from "react-icons/io5";
 import { FaDonate } from "react-icons/fa";
 import { VolunteerForm } from "../global/index";
@@ -8,7 +8,7 @@ function GetInvolved() {
 		<div>
 			<section className='overflow-hidden'>
 				<Card>
-					<Card.Img src='images/about.png' />
+					<Card.Img src='images/about.png' alt=""/>
 					<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
 						<p className='text-white h1 '>
 							Working for the Unseen side of socity
@@ -77,7 +77,7 @@ function GetInvolved() {
 
 					<Row>
 						<Col xs={12} sm={12} md={12} lg={6} className='d-flex justify-content-center align-items-center'>
-							<Image className="clipcart w-100" src='images/5299.jpg' />
+							<Image className="clipcart w-100" src='images/5299.jpg' alt=""/>
 						</Col>
 						<Col xs={12} sm={12} md={12} lg={6} >
 							<VolunteerForm />

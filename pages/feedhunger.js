@@ -1,6 +1,6 @@
 import axios from "axios";
 import React,{useState} from "react";
-import { Card, Row, Col, Form, Button, Image, Modal } from "react-bootstrap";
+import { Card, Row, Col, Form, Button, Image } from "react-bootstrap";
 import {ErrorHandler} from "../global/index"
 
 
@@ -48,7 +48,7 @@ const submitHandler=async(event)=>{
 			</section>
 			<section className='container section-mgap section-mgap section-pbgap'>
 				<p className='text-center h2 m-0 my-orange'>
-					Care for one who don't have anyone
+					Care for one who dont have anyone
 				</p>
 				<p className='text-center h4 myprimary-text'>
 					Be the reason for someone smiles
@@ -115,7 +115,7 @@ const submitHandler=async(event)=>{
 							</Form>
 						</Col>
 						<Col className='d-flex justify-content-center align-items-center'>
-							<Image src='images/icon/fooddonation.png' />
+							<Image src='images/icon/fooddonation.png' alt=""/>
 						</Col>
 					</Row>
 			

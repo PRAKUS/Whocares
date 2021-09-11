@@ -1,12 +1,12 @@
 import React from "react";
 import { Card, Row, Col, Carousel, Image } from "react-bootstrap";
-import { Cd1 } from "./Home/components";
+import { Cd1 } from "../Home";
 function OldAge() {
 	return (
 		<div>
 			<section className='overflow-hidden'>
 				<Card>
-					<Card.Img src='images/about.png' />
+					<Card.Img src='images/about.png' alt=""/>
 					<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
 						<p className='text-white '>Working for the Unseen side of socity</p>
 					</Card.ImgOverlay>
@@ -54,6 +54,7 @@ function OldAge() {
 										<Image
 											src='images/photoGallery/gallery1.jpg'
 											roundedCircle
+											alt=""
 										/>
 									</Card>
 								</Carousel.Item>
@@ -62,6 +63,7 @@ function OldAge() {
 										<Image
 											src='images/photoGallery/gallery1.jpg'
 											roundedCircle
+											alt=""
 										/>
 									</Card>
 								</Carousel.Item>
@@ -70,6 +72,7 @@ function OldAge() {
 										<Image
 											src='images/photoGallery/gallery1.jpg'
 											roundedCircle
+											alt=""
 										/>
 									</Card>
 								</Carousel.Item>

@@ -1,28 +1,13 @@
-import Navigation from "./Navigation";
+	export {default as Navigation} from "./Navigation"; 
+	export {default as Footer}  from"./Footer";
+	export {default as RecentEvent}  from "./RecentEvent";
+	export {default as DonationApeal}  from "./DonationApeal";
+	export {default as GEventCard} from "./GEventCard";
+	export {default as PhotoGallery}  from "./PhotoGallery";
+	export {default as Share}  from "./Share";
+	export {default as StaffList}  from "./StaffList";
+	export {default as VolunteerForm}  from "./VolunteerForm";
+	export {default as CommentForm}  from "./CommentForm";
+	export {default as Comment} from  "./Comment";
+	export {default as ErrorHandler}  from "./ErrorHandler";
 
-import Footer from "./Footer";
-
-import RecentEvent from "./RecentEvent";
-import DonationApeal from "./DonationApeal";
-import GEventCard from "./GEventCard";
-import PhotoGallery from "./PhotoGallery";
-import Share from "./Share";
-import StaffList from "./StaffList";
-import VolunteerForm from "./VolunteerForm";
-import CommentForm from "./CommentForm";
-import Comment from "./Comment";
-import ErrorHandler from "./ErrorHandler";
-export {
-	Navigation,
-	Footer,
-	RecentEvent,
-	DonationApeal,
-	GEventCard,
-	PhotoGallery,
-	Share,
-	StaffList,
-	VolunteerForm,
-	CommentForm,
-	Comment,
-	ErrorHandler
-};

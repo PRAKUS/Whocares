@@ -8,7 +8,7 @@ import {
 	Carousel,
 	Button,
 } from "react-bootstrap";
-import { Cd1, Cd2, MissionCard, ThankyouCard } from "./Home/components";
+import { Cd1, Cd2, MissionCard, ThankyouCard } from "../Home";
 import { service } from "../data/data";
 import {
 	DonationApeal,
@@ -31,7 +31,7 @@ function Home({photos,recentEvent}) {
 
 	useEffect(() => {
 		// window.scroll(0, 0);
-		latestEvent();
+		latestEvent(state.events);
 		Notification.requestPermission().then((result)=>{
 			console.log(result)
 		})
@@ -80,13 +80,13 @@ function Home({photos,recentEvent}) {
 				<div className=' container'>
 					<Row>
 						<Col xsm={12} sm={12} md={4}>
-							<Cd1 img="images/icon/donate.png"></Cd1>
+							<Cd1 img="/images/icon/donate.png"></Cd1>
 						</Col>
 						<Col xsm={12} sm={12} md={4}>
-							<Cd1 img='images/icon/fundraise.png'></Cd1>
+							<Cd1 img='/images/icon/fundraise.png'></Cd1>
 						</Col>
 						<Col xsm={12} sm={12} md={4}>
-							<Cd1 img='images/icon/volunteer.png'></Cd1>
+							<Cd1 img='/images/icon/volunteer.png'></Cd1>
 						</Col>
 					</Row>
 				</div>
@@ -104,8 +104,8 @@ function Home({photos,recentEvent}) {
 							 backgrounds the one thing that unites the members is to BE AN INSPIRATION in 
 							 serving the humanities.
 							</p>
-							<Image src='' />
-							<Link href='/about'>
+							<Image src='' alt=""/>
+							<Link href='/about' passHref>
 								<Button className='border-0 myorange-bg p1'>Read More</Button>
 							</Link>
 						</Col>

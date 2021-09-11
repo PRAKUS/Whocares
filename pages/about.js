@@ -3,8 +3,10 @@ import { Card, Col, Row } from "react-bootstrap";
 import { DonationApeal, PhotoGallery, StaffList } from "../global";
 import { IoFastFood, IoPeople } from "react-icons/io5";
 import { FaDonate } from "react-icons/fa";
+import axios from "axios";
+import {HOST} from "../env/env"
 
-function About() {
+function About({photos}) {
 	useEffect(() => {
 		//window.scroll(0, 0);
 	}, []);
@@ -95,7 +97,7 @@ function About() {
 				<DonationApeal />
 			</section>
 			<section className='my-primary section-mgap section-pgap'>
-				<PhotoGallery />
+				<PhotoGallery photo={photos}/>
 			</section>
 			<section className='container section-mgap section-pbgap'>
 				<p className='myprimary-text text-center h3'>Meet our founder </p>
@@ -110,3 +112,20 @@ function About() {
 }
 
 export default About;
+
+
+export  async  function getServerSideProps(){
+	const count= await axios.get(`${HOST}/photoalbums/count`);
+	let data=parseInt(Math.random() * (count.data - 1) + 1);
+	const photo=await axios.get(`${HOST}/photoalbums/${data}`);
+	let photos=photo.data;
+	
+
+	
+	return{
+		props:{
+			photos,
+			
+		}
+	}
+}

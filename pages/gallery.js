@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useRef, useState } from 'react'
-import {Card,Col,Row} from "react-bootstrap"
+import {Card} from "react-bootstrap"
 import {PhotoGallery} from "../global/"
 import {HOST} from "../env/env"
 import { BiRightArrow, BiLeftArrow } from "react-icons/bi";
