@@ -23,7 +23,7 @@ const Navigation = (props) => {
 					<img
 						style={style.logoSize}
 						alt='logo'
-						src={"http://localhost:1337/uploads/logo_9b5ab53b51.png"}
+						src={`${HOST}/uploads/logo_9b5ab53b51.png`}
 					/>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='responsive-navbar-nav' />

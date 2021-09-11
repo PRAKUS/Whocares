@@ -28,7 +28,7 @@ const CommentForm = ({endpoints,commentrefresh}) => {
 		event.preventDefault();
 		try{
 			console.log(comment)
-			const req=axios.post("http://localhost:1337/comments/",comment);
+			const req=axios.post(`${HOST}/comments/`,comment);
 			console.log(req)
 			setComment({name:"",email:"",comment:"",event:{},recent_event:{}});
 			commentrefresh(endpoints.value.post);

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Col, Button, Modal } from "react-bootstrap";
 import axios from "axios";
+import {HOST} from "../env/env"
 
 export default function VolunteerForm() {
 	const [input, setInput] = useState(
@@ -14,7 +15,7 @@ export default function VolunteerForm() {
 	);
 	const [status, setstatus] = useState();
 	const [show, setShow] = useState(false);
-	let url = "http://localhost:1337/volunteerregistrations";
+	let url = `${HOST}volunteerregistrations`;
 	const inputHandler = (event) => {
 		event.preventDefault();
 		setInput((input) => ({

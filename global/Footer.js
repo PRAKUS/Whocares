@@ -6,6 +6,7 @@ import { Col, Row } from "react-bootstrap";
 import { RecentEvent } from ".";
 import Link from "next/link";
 import EventContext from "../Context/EventContext/EventContext";
+import { HOST } from "../env/env";
 
 const Iconcontainer = (props) => {
 	return (
@@ -64,7 +65,7 @@ const Footer = () => {
 							eventName={events.Name}
 							link={`/eventdetail/${events.id}`}
 														date={events.startdate}
-							img={`http://localhost:1337${events.headerimage.formats.thumbnail.url}`}
+							img={`${HOST}${events.headerimage.formats.thumbnail.url}`}
 						/>
 					</li>
 				);
@@ -86,7 +87,7 @@ const Footer = () => {
 				<Row>
 					<Col xl={3} lg={3} md={3} sm={12} xs={12} className='pt-4 '>
 						<img
-							src={"http://localhost:1337/uploads/logo_9b5ab53b51.png"}
+							src={`${HOST}/uploads/logo_9b5ab53b51.png`}
 							style={{ height: "40px" }}
 							alt='logo'
 						/>

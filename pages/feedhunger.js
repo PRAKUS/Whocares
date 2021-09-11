@@ -22,7 +22,7 @@ const inputHandler=(event)=>{
 const submitHandler=async(event)=>{
 	event.preventDefault()
 	try{
-		const req=await axios.post("http://localhost:1337/fooddonations",input);
+		const req=await axios.post(`${HOST}fooddonations`,input);
 		setStatusCode(req.status)
 		console.log(req)
 		setInput({first_name:"",last_name:"",occasion:"",phone_number:""})

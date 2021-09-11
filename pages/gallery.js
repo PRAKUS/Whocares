@@ -90,7 +90,7 @@ export default Gallery;
 
 export async function getServerSideProps(){
 
-const res= await axios.get(`http://localhost:1337/photoalbums`);
+const res= await axios.get(`${HOST}/photoalbums`);
 
 
 
