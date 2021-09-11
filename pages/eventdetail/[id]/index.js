@@ -7,6 +7,7 @@ import { CommentForm, Comment } from "../../../global/index";
 
 
 import axios from "axios";
+import { HOST } from "../../../env/env";
 
 let endpoints="events"
 const Eventdetail = ({ post }) => {
@@ -15,7 +16,7 @@ const Eventdetail = ({ post }) => {
 	const commentHandler=async(req)=>{
 		console.log(req.id)
 		try{const res = await axios.get(
-			`http://localhost:1337/${endpoints}/${req.id}`,
+			`${HOST}${endpoints}/${req.id}`,
 		);
 		const post = res.data.comments;
 		console.log(post);
