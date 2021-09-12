@@ -16,7 +16,7 @@ const Eventdetail = ({ post }) => {
 	const commentHandler=async(req)=>{
 		console.log(req.id)
 		try{const res = await axios.get(
-			`${HOST}${endpoints}/${req.id}`,
+			`${HOST}/${endpoints}/${req.id}`,
 		);
 		const post = res.data.comments;
 		console.log(post);
