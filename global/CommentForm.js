@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from "react";
 import { Form, Button ,Col} from "react-bootstrap";
 import axios from "axios"; 
+import {HOST} from "../env/env"
 const CommentForm = ({endpoints,commentrefresh}) => {
 
 	const[comment,setComment]=useState({name:"",email:"",comment:"",event:{},recent_event:{}})
