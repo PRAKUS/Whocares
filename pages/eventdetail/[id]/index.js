@@ -36,7 +36,7 @@ const endpoint={name:endpoints,value:{post}}
 						<Card style={{ maxHeight: "400px" }} className='overflow-hidden'>
 							<Image
 								className='w-100 '
-								src={`http://localhost:1337${post.headerimage.url}`}
+								src={`${HOST}${post.headerimage.url}`}
 								alt="coverimage"
 							/>
 							<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
@@ -59,7 +59,7 @@ const endpoint={name:endpoints,value:{post}}
 									</div>
 								</div>
 								<ReactMarkdown className='markdown' transformImageUri={(uri) =>
-								uri.startsWith("http") ? uri : `http://localhost:1337${uri}`
+								uri.startsWith("http") ? uri : `${HOST}${uri}`
 							}>
 									{post.eventdetails}
 								</ReactMarkdown>
@@ -106,7 +106,7 @@ const endpoint={name:endpoints,value:{post}}
 
 export async function getServerSideProps(context) {
 	const res = await axios.get(
-		`http://localhost:1337/${endpoints}/${context.params.id}`,
+		`${HOST}/${endpoints}/${context.params.id}`,
 	);
 	const post = res.data;
 
