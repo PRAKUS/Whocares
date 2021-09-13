@@ -11,7 +11,7 @@ import {
 import { Cd1, Cd2, MissionCard, ThankyouCard } from "../Home";
 import { service } from "../data/data";
 import {
-	DonationApeal,
+
 	GEventCard,
 	PhotoGallery,
 	RecentEvent,
@@ -25,37 +25,44 @@ import{HOST} from "../env/env"
 
 
 function Home({photos,recentEvent}) {
+
+	console.log(photos)
+
 	const { state } = useContext(EventContext);
 
+	const[eventCount,setEventCount]=useState(0);
 	const [list, setlist] = useState();
-
 	useEffect(() => {
-		window.scroll(0, 0);
+		// window.scroll(0, 0);
 		latestEvent(state.events);
-		Notification.requestPermission().then((result)=>{
+		setEventCount(state.events.length)
 		
-		})
 	}, [state.events]);
+	console.log(state.events.length)
 
 	const latestEvent = () => {
+		
 		try {
-			const component = state.events.slice((state.events.length-4),state.events.length-1).map((events) => {
-				return (
-					<li className='py-2 ' key={events.id}>
-						<RecentEvent
-							eventName={events.Name}
-							link={`/eventdetail/${events.id}`}
-							date={events.startdate}
-							img={`${HOST}${events.headerimage.formats.thumbnail.url}`}
-						/>
-					</li>
+
+				const component = state.events.slice((state.events.length-4),state.events.length-1).map((events) => {
+					return (
+						<li className='py-2 ' key={events.id}>
+							<RecentEvent
+								eventName={events.Name}
+								link={`/eventdetail/${events.id}`}
+								date={events.startdate}
+								img={`${HOST}${events.headerimage.formats.thumbnail.url}`}
+							/>
+						</li>
+					);
+				});
+				setlist(
+					component.sort(function (a, b) {
+						return a - b;
+					}),
 				);
-			});
-			setlist(
-				component.sort(function (a, b) {
-					return a - b;
-				}),
-			);
+			
+			
 		} catch (err) {
 			console.log("work");
 			return <div className='text-white'>hhh</div>;
@@ -121,8 +128,6 @@ function Home({photos,recentEvent}) {
 				</div>
 			</section>
 
-			
-
 			<section className='my-primary section-mgap '>
 				<div className='container section-pgap section-pbgap'>
 					<p className='text-center myprimary-text h2 mb-0 pb-3'>
@@ -155,8 +160,7 @@ function Home({photos,recentEvent}) {
 						<header className='section-pbgap'>
 							<p className='text-white h2 text-center'>Our upcoming Events</p>
 						</header>
-
-						<Row>
+						{eventCount>0?<Row>
 							<Col md={6}>
 								<GEventCard
 									event={
@@ -169,7 +173,11 @@ function Home({photos,recentEvent}) {
 							<Col md={3} className=' m-0'>
 								<ul className='list-inline m-0'>{list}</ul>
 							</Col>
-						</Row>
+						</Row>:<p className="text-center">We will update soon</p>}
+
+
+						
+						
 					</div>
 				</div>
 			</section>
@@ -181,7 +189,7 @@ function Home({photos,recentEvent}) {
 						Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
 						cillum sint consectetur cupidatat..
 					</p>
-
+					{recentEvent.length>0?
 					<CardDeck className='section-pgap section-pbgap'>
 							
 						{recentEvent.map((event, index)=>{
@@ -191,7 +199,7 @@ function Home({photos,recentEvent}) {
 						})}
 					
 						
-					</CardDeck>
+					</CardDeck>:<p className="text-center mt-4 section-pbgap">No Recent Event updated</p>}
 				</div>
 			</section>
 			<div className='section-mgap'>
@@ -202,25 +210,59 @@ function Home({photos,recentEvent}) {
 	);
 }
 
+
+
 export default Home;
 
-
 export  async  function getServerSideProps(){
+
+	try{
+	
 	const count= await axios.get(`${HOST}/photoalbums/count`);
+	
+	if(count.data>1){
 	let data=parseInt(Math.random() * (count.data - 1) + 1);
 	const photo=await axios.get(`${HOST}/photoalbums/${data}`);
-
 	const RecentEvent=await axios.get(`${HOST}/recent-events`);
 	let recentEvent=RecentEvent.data;
 
 	let photos=photo.data;
-	
 
-	
 	return{
 		props:{
 			photos,
 			recentEvent
 		}
 	}
+
+	}
+
+	else{
+		const photo=await axios.get(`${HOST}/photoalbums`)
+		const photos=photo.data.length>0?photo.data[0]:[];
+		const RecentEvent=await axios.get(`${HOST}/recent-events`);
+		let recentEvent=RecentEvent.data;
+		return{
+			props:{
+				photos,
+				recentEvent
+			}
+		}
+
+	}
+
+
+
+	
+	}catch(err){
+		console.log(err)
+		return{
+			props:{
+				photos:[],
+				recentEvent:[]
+			}
+		}
+	}
+	
+	
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import EventCard from "./EventComponent/EventCard";
-import { Row, Card } from "react-bootstrap";
+import { Row, Card ,Col} from "react-bootstrap";
 import EventContext from "../Context/EventContext/EventContext";
 import axios from "axios";
 import {HOST} from "../env/env"
@@ -8,7 +8,7 @@ import {HOST} from "../env/env"
 function Events({recentEvents}) {
 	const { state } = useContext(EventContext);
 
-	const [latestlist, setlist] = useState();
+	const [latestlist, setlist] = useState([]);
 
 	useEffect(() => {
 		window.scroll(0, 0);
@@ -17,14 +17,18 @@ function Events({recentEvents}) {
 
 	const latestEvent = () => {
 		try {
-			const component = state.events.map((events) => {
-				return <EventCard key={events.id} event={events} endpoint={"eventdetail"}  />;
-			});
-			setlist(
-				component.sort(function (a, b) {
-					return a - b;
-				}),
-			);
+			
+				const component = state.events.map((events) => {
+					return <EventCard key={events.id} event={events} endpoint={"eventdetail"}  />;
+				});
+				setlist(
+					component.sort(function (a, b) {
+						return a - b;
+					}),
+				);
+			
+		
+		
 		} catch (err) {
 			console.log("work", err);
 			return <div className='text-white'>hhh</div>;
@@ -46,13 +50,13 @@ function Events({recentEvents}) {
 					{" "}
 					Our upcoming Events
 				</p>
-				<Row>{latestlist}</Row>
+				<Row>{latestlist.length>0?latestlist:<Col><p className="text-center">No upcoming events. Stay tuned for new Events </p></Col> }</Row>
 			</section>
 			<section className='my-primary section-mgap'>
 				<div className='container  section-pgap section-pbgap'>
 					<p className='text-center h2 myprimary-text  '> Our Pasts Events</p>
 					<Row>
-						{recentEvents.map((events,index)=>{return <EventCard key={index} event={events} endpoint={"recentevent"}/>}) }
+						{recentEvents.length>0?recentEvents.map((events,index)=>{return <EventCard key={index} event={events} endpoint={"recentevent"}/>}):<Col><p className="text-center">No events till now</p></Col> }
 					</Row>
 				</div>
 			</section>
