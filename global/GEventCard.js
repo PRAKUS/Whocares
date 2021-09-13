@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Card, Row, Col } from "react-bootstrap";
 import { ImLocation2, ImClock } from "react-icons/im";
 import Link from "next/link";
+import {HOST} from "../env/env"
+
 
 function GEventCard(props) {
+	
+
 	const [month, setmonth] = useState();
 	const [time, setTime] = useState();
 	const [events, setEvent] = useState({
@@ -56,11 +60,12 @@ function GEventCard(props) {
 
 	return (
 		<Link href={`eventdetail/${events.id}`}>
+		
 			<Card
 				className='h-100 overflow-hidden cursor'
 				style={{ maxHeight: "350px" }}>
 				<Card.Img
-					src={`http://localhost:1337${events.headerimage.formats.medium.url}`}
+					src={`${HOST}${events.headerimage.formats.medium.url}`}
 				/>
 				<Card.ImgOverlay className='banner-overlay'>
 					<Card.Footer className='text-white border-0 cardmargin'>
@@ -88,6 +93,8 @@ function GEventCard(props) {
 					</Card.Footer>
 				</Card.ImgOverlay>
 			</Card>
+			
+			
 		</Link>
 	);
 }

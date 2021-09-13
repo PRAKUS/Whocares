@@ -10,13 +10,15 @@ import { HOST } from "../env/env";
 
 const Iconcontainer = (props) => {
 	return (
-		<div className='d-flex align-items-center mt-1'>
+		<a href={props.link} className="cursor" target="_blank" rel="noopener noreferrer"> 
+		<div className='d-flex align-items-baseline mt-1'>
 			{props.children}
 
-			<Link href={props.link}>
-				<p className='text-white ml-2 primary-font '> {props.label}</p>
-			</Link>
+		
+				<p className='text-white ml-2 primary-font text-truncate' style={{maxWidth:"230px"}}> {props.label}</p>
+			
 		</div>
+		</a>
 	);
 };
 
@@ -93,7 +95,7 @@ const Footer = () => {
 						/>
 						<label className='my-orange ml-2 primary-title'>Who Cares</label>
 						<p className='my-3 text-white primary-font  '>
-							Albert Villa,12mile,kalimpong <br />
+							Sharma Building,ground floor,<br/> Thana Dara ,Kalimpong <br />
 							West Bengal, India
 						</p>
 
@@ -101,14 +103,14 @@ const Footer = () => {
 							<li>
 								<Iconcontainer
 									link='/'
-									color=' #3395ff'
+									
 									label='teamwhocares123@gmail.com'>
-									<AiOutlineMail />{" "}
+									<AiOutlineMail  color='#fb743e'/>{" "}
 								</Iconcontainer>
 							</li>
 							<li>
-								<Iconcontainer color=' #3395ff' label='+91-9876543210' link='/'>
-									<FaPhoneAlt />{" "}
+								<Iconcontainer  label='+91-9876543210' link='/'>
+									<FaPhoneAlt color='#fb743e'/>{" "}
 								</Iconcontainer>
 							</li>
 						</ul>
@@ -178,13 +180,13 @@ const Footer = () => {
 							Connect with us on
 						</header>
 						<div className='d-flex justify-content-center my-2'>
-							<Iconcontainer link='/'>
+							<Iconcontainer link='https://www.facebook.com/Team-WHO-Cares-507041412693575'>
 								<FaFacebook size='40px' color='#fff' />{" "}
 							</Iconcontainer>
 							<Iconcontainer link='/'>
 								<IoLogoWhatsapp size='40px' color='#fff' />{" "}
 							</Iconcontainer>
-							<Iconcontainer link='/'>
+							<Iconcontainer link='https://www.instagram.com/26whocares/'>
 								<AiFillInstagram size='40px' color='#fff' />{" "}
 							</Iconcontainer>
 							<Iconcontainer link='/'>

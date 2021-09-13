@@ -30,10 +30,10 @@ function Home({photos,recentEvent}) {
 	const [list, setlist] = useState();
 
 	useEffect(() => {
-		// window.scroll(0, 0);
+		window.scroll(0, 0);
 		latestEvent(state.events);
 		Notification.requestPermission().then((result)=>{
-			console.log(result)
+		
 		})
 	}, [state.events]);
 
@@ -110,7 +110,7 @@ function Home({photos,recentEvent}) {
 							</Link>
 						</Col>
 						<Col xsm={12} sm={12} md={6} className='d-flex flex-column'>
-							<label className='text-center primary-title '>
+							<label className='text-center primary-title myprimary-text  '>
 								Our Activities
 							</label>
 							<MissionCard missioncard={service[0]} />
@@ -121,23 +121,7 @@ function Home({photos,recentEvent}) {
 				</div>
 			</section>
 
-			<section className='container section-mgap'>
-				<p className='text-center h2 '>Your Precious Help Needed</p>
-				<div className="pt-4">
-				<Carousel controls={true} indicators={false} interval={2500}>
-					<Carousel.Item>
-						<DonationApeal />
-					</Carousel.Item>
-					<Carousel.Item>
-						<DonationApeal />
-					</Carousel.Item>
-					<Carousel.Item>
-						<DonationApeal />
-					</Carousel.Item>
-				</Carousel> 
-				</div>
-				
-			</section>
+			
 
 			<section className='my-primary section-mgap '>
 				<div className='container section-pgap section-pbgap'>
@@ -201,7 +185,9 @@ function Home({photos,recentEvent}) {
 					<CardDeck className='section-pgap section-pbgap'>
 							
 						{recentEvent.map((event, index)=>{
-								return (<Cd2 key={index} event={event}/>)
+							
+							
+								return (<Cd2 key={index} event={event} url={`/recentevent/${event.id}`}/>)
 						})}
 					
 						

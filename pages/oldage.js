@@ -1,18 +1,22 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Card, Row, Col, Carousel, Image } from "react-bootstrap";
 import { Cd1 } from "../Home";
+import {StaffList} from "../global/index"
 function OldAge() {
+	useEffect(() => {
+		window.scroll(0, 0);
+	}, []);
 	return (
 		<div>
-			<section className='overflow-hidden'>
+			<section className='overflow-hidden' style={{maxHeight:"400px"}}>
 				<Card>
-					<Card.Img src='images/about.png' alt=""/>
+					<Card.Img src='images/oldagehome.png' style={{marginTop:"-15%"}} alt=""/>
 					<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
-						<p className='text-white '>Working for the Unseen side of socity</p>
+						<p className='text-white h1'>JOYS HOME</p>
 					</Card.ImgOverlay>
 				</Card>
 			</section>
-			<section className=' p-2 section-mgap'>
+			<section className=' p-2 ' style={{marginTop:"-7%"}}>
 				<div className=' container'>
 					<Row>
 						<Col xsm={12} sm={12} md={4}>
@@ -80,6 +84,14 @@ function OldAge() {
 						</Col>
 					</Row>
 				</div>
+			</section>
+			<section className='container section-mgap section-pbgap'>
+				<p className='myprimary-text text-center h3'>Meet Our Caretaker </p>
+				<p className='text-center my-orange section-pbgap'>
+					Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
+					cillum sint consectetur cupidatat.
+				</p>
+				<StaffList />
 			</section>
 		</div>
 	);

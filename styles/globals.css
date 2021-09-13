@@ -287,7 +287,13 @@ height:250px;
 	max-width: 200px;
 }
 .mypicturebackground {
-	background-image: url("http://localhost:3000/images/photoGallery/gallery4.jpg");
+	background-image: url("/images/photoGallery/gallery4.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.mypicturebackground2{
+	background-image: url("/images/oldman.png");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;

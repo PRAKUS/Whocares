@@ -2,8 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import EventCard from "./EventComponent/EventCard";
 import { Row, Card } from "react-bootstrap";
 import EventContext from "../Context/EventContext/EventContext";
+import axios from "axios";
+import {HOST} from "../env/env"
 
-function Events() {
+function Events({recentEvents}) {
 	const { state } = useContext(EventContext);
 
 	const [latestlist, setlist] = useState();
@@ -16,7 +18,7 @@ function Events() {
 	const latestEvent = () => {
 		try {
 			const component = state.events.map((events) => {
-				return <EventCard key={events.id} event={events} />;
+				return <EventCard key={events.id} event={events} endpoint={"eventdetail"}  />;
 			});
 			setlist(
 				component.sort(function (a, b) {
@@ -50,7 +52,7 @@ function Events() {
 				<div className='container  section-pgap section-pbgap'>
 					<p className='text-center h2 myprimary-text  '> Our Pasts Events</p>
 					<Row>
-						<EventCard />
+						{recentEvents.map((events,index)=>{return <EventCard key={index} event={events} endpoint={"recentevent"}/>}) }
 					</Row>
 				</div>
 			</section>
@@ -59,3 +61,14 @@ function Events() {
 }
 
 export default Events;
+
+export  async  function getServerSideProps(){
+
+	const res=await axios.get(`${HOST}/recent-events`)
+	const	recentEvents=res.data;
+	return{
+		props:{
+			recentEvents
+		}
+	}
+}

@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
-import { Card, Col, Row } from "react-bootstrap";
-import { DonationApeal, PhotoGallery, StaffList } from "../global";
+import { Card, Col, Row} from "react-bootstrap";
+import {  PhotoGallery, StaffList } from "../global";
+import { MissionCard} from "../Home";
 import { IoFastFood, IoPeople } from "react-icons/io5";
 import { FaDonate } from "react-icons/fa";
 import axios from "axios";
 import {HOST} from "../env/env"
+import { service } from "../data/data";
 
 function About({photos}) {
 	useEffect(() => {
-		//window.scroll(0, 0);
+		window.scroll(0, 0);
 	}, []);
 	return (
 		<div>
@@ -22,7 +24,9 @@ function About({photos}) {
 			</section>
 			<section className='container section-mgap'>
 				<Row>
-					<Col xs={12} sm={12} md={4}></Col>
+					<Col xs={12} sm={12} md={4}>
+
+					</Col>
 					<Col xs={12} sm={12} md={8} className=''>
 						<p className='my-orange'>About Us</p>
 						<p className='myprimary-text h3 font-weight-bold'>Our Motto</p>
@@ -92,20 +96,45 @@ function About({photos}) {
 					</Row>
 				</div>
 			</section>
-			<section className='container section-mgap'>
-			<p className='text-center h2 '>Your Precious Help Needed</p>
-				<DonationApeal />
+			<section className='mypicturebackground2 '>
+				<div
+					className='section-pgap section-pbgap'
+					style={{ backgroundColor: "rgba(255, 255, 255, 0.8)" }}>
+					<div className='container'>
+						<header className='section-pbgap'>
+							<p className='myprimary-text h2 text-center'>Our Services</p>
+						</header>
+						<Row>
+						<Col xsm={12} sm={12} md={6} className='d-flex flex-column'>
+							<MissionCard shadow={true} missioncard={service[0]} />
+							<MissionCard shadow={true} missioncard={service[1]} />
+							<MissionCard shadow={true} missioncard={service[2]} />
+						</Col>
+						<Col xsm={12} sm={12} md={6} className='d-flex flex-column'>
+							
+							<MissionCard shadow={true} missioncard={service[3]} />
+							<MissionCard shadow={true} missioncard={service[4]} />
+							<MissionCard shadow={true} missioncard={service[5]} />
+						</Col>
+					</Row>
+						
+					</div>
+				</div>
 			</section>
-			<section className='my-primary section-mgap section-pgap'>
-				<PhotoGallery photo={photos}/>
-			</section>
-			<section className='container section-mgap section-pbgap'>
+			<section className='container mt-4 section-pbgap'>
 				<p className='myprimary-text text-center h3'>Meet our founder </p>
 				<p className='text-center my-orange section-pbgap'>
 					Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
 					cillum sint consectetur cupidatat.
 				</p>
 				<StaffList />
+			</section>
+
+			<section className="my-primary ">
+			<div className='section-mgap pt-4'>
+				
+				<PhotoGallery photo={photos}/>  
+			</div>
 			</section>
 		</div>
 	);

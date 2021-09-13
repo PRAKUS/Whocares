@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState ,useEffect} from 'react'
 import {Card} from "react-bootstrap"
 import {PhotoGallery} from "../global/"
 import {HOST} from "../env/env"
@@ -30,6 +30,9 @@ function Gallery({photo}) {
     const [slideCount,setslidesCount]=useState(0);
 
     const slides=useRef();
+    useEffect(()=>{
+        window.scroll(0, 0);
+    },[])
 
     const prev=()=>{
         let element=slides.current;
@@ -55,7 +58,7 @@ function Gallery({photo}) {
     
     return (
         <div>
-           <section>
+           <section style={{maxHeight:"400px"}}>
 				<Card >
 					<Card.Img  src='images/about.png' />
 					<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
@@ -63,10 +66,13 @@ function Gallery({photo}) {
 					</Card.ImgOverlay>
 				</Card>
 			</section>
-            <section className="container">
+
+
+            <section className="container mt-4">
+                <p className="text-center h1 myprimary-text pb-4">Memories  Lane</p>
             <div className="d-flex overflow-hidden sliderContainer"  style={{position:"relative"}}>
-                    <BiLeftArrow  className=" button  buttonleft " onClick={prev}/>
-                    <BiRightArrow className=" button  buttonRight " onClick={next}/>
+                    <BiLeftArrow  className=" button  buttonleft " onClick={next}/>
+                    <BiRightArrow className=" button  buttonRight " onClick={prev} />
              
                 <div ref={slides} className="d-flex flex-row"  >
                {photo.map((photo,index)=>{
@@ -78,7 +84,7 @@ function Gallery({photo}) {
               
             </section>
 
-            <section>
+            <section className="section-mgap">
                 <PhotoGallery  photo={photo[selectAlbum]}/>
             </section>
             
