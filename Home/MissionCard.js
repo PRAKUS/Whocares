@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const MissionCard = (props) => {
 	return (
-		<Row className=' m-1 border  rounded p-1'>
+		<Row className={`${props.shadow?"shadow":""} m-1 border  rounded p-1`} style={{minHeight:"145px"}}>
 			<Col
 				xl={3}
 				lg={3}
@@ -26,9 +26,10 @@ const MissionCard = (props) => {
 				<p className='overflow-hidden sm-font  mysecondary-text primary-font pl-0 container'>
 					{props.missioncard.des}
 				</p>
-				<Link href={props.missioncard.url} passHref>
+				{props.missioncard.url?<Link href={props.missioncard.url} passHref>
 					<small className='cursor mysecondary-text'>Read More</small>
-				</Link>
+				</Link>:""}
+				
 			</Col>
 		</Row>
 	);

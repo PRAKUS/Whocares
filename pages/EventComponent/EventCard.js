@@ -7,6 +7,7 @@ import {HOST} from "../../env/env"
 
 const EventCard = (props) => {
 	const [month, setmonth] = useState();
+	const [date,setDate]=useState();
 	const [events, setEvent] = useState({
 		id: "",
 		Name: "",
@@ -45,6 +46,7 @@ const EventCard = (props) => {
 				month = month.toUpperCase();
 				let time = parseFloat(date.toString().slice(15, 20)).toFixed(2);
 
+				setDate(date.toString().slice(8,10))
 				setmonth(month);
 				if (time > 12) {
 					time = time % 12;
@@ -59,7 +61,7 @@ const EventCard = (props) => {
 	};
 	return (
 		<Col key={props.key} xsm={12} sm={12} md={6} lg={4} className='mt-4 cursor'>
-			<Link href={`eventdetail/${events.id}`} passHref>
+			<Link href={`${props.endpoint}/${events.id}`} passHref>
 				<Card className=' overflow-hidden eventimgbg' >
 					<Card.Img
 						src={`${HOST}${events.headerimage.formats.medium.url}`}
@@ -70,7 +72,7 @@ const EventCard = (props) => {
 							className='text-white border-0 cardmargin'
 							>
 							<Row>
-								<Col
+								{events.startdate?<Col
 									xs={3}
 									sm={2}
 									md={3}
@@ -78,23 +80,25 @@ const EventCard = (props) => {
 									className='myorange-bg d-flex justify-align-center align-items-center rounded '>
 									<div >
 									<p className='ml-2 m-0 text-center '>
-										{events.startdate.slice(8, 10)}
+										{date}
 									</p>
 									<p className='ml-2 m-0 text-center' >{month}</p>
 									</div>
 									
-								</Col>
+								</Col>:""}
+								
 								<Col xs={9} sm={10} md={9} lg={9}>
-									<p className='h4'>{events.Name}</p>
+									<p className='h4'>{events.Name}{events.causename}</p>
 									<div className='d-flex align-items-center '>
 										<div className='d-flex align-items-center'>
 											<ImLocation2 />
 											<p className='m-0 p1 ml-1 text-truncate' style={{maxWidth:"100px"}}>{events.location}</p>
 										</div>
-										<div className='d-flex align-items-center ml-4'>
+										{time?<div className='d-flex align-items-center ml-4'>
 											<ImClock />
 											<p className='m-0 p1 ml-1'>{time}</p>
-										</div>
+										</div>:""}
+										
 									</div>
 								</Col>
 							</Row>

@@ -2,11 +2,17 @@ import React,{useState, useEffect} from 'react'
 import {Modal} from "react-bootstrap" 
 
 function ErrorHandler(props) {
+	
 const [status, setstatus] = useState();
 const [show, setShow] = useState(false);
 
 
 useEffect(()=>{
+	console.log(props)
+	if(props.status){
+		setShow(true);
+	}
+	
     statusHandler(props.status)
 },[props.status])
 
@@ -15,12 +21,15 @@ const statusHandler = () => {
 
     if (props.status === 200) {
         setstatus(successModal);
+		
         console.log("scmodal")
         return;
     } else {
         setstatus(errmodal);
+		
         console.log(props.status)
     }
+
 };
 const errmodal = () => {
 	return (

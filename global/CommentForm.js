@@ -2,7 +2,8 @@ import React,{useState,useEffect} from "react";
 import { Form, Button ,Col} from "react-bootstrap";
 import axios from "axios"; 
 import {HOST} from "../env/env"
-const CommentForm = ({endpoints,commentrefresh}) => {
+const CommentForm = ({endpoints,post,commentrefresh}) => {
+	
 
 	const[comment,setComment]=useState({name:"",email:"",comment:"",event:{},recent_event:{}})
 
@@ -14,11 +15,13 @@ const CommentForm = ({endpoints,commentrefresh}) => {
 		}));
 	}
 	useEffect(()=>{
-		if(endpoints.name==="events"){
-			setComment({...comment,event:endpoints.value.post})
+		console.log(endpoints)
+		if(endpoints==="events"){
+			setComment({...comment,event:post})
 		}
-		if(endpoints.name==="recentevent"){
-			setComment({...comment,recent_event:endpoints.value.post})
+		if(endpoints==="recent-events"){
+			console.log("RC",post)
+			setComment({...comment,recent_event:post})
 		}
 		
 	},[endpoints.value])
@@ -32,7 +35,7 @@ const CommentForm = ({endpoints,commentrefresh}) => {
 			const req=axios.post(`${HOST}/comments/`,comment);
 			console.log(req)
 			setComment({name:"",email:"",comment:"",event:{},recent_event:{}});
-			commentrefresh(endpoints.value.post);
+			commentrefresh(post);
 		}
 		catch (err){
 				console.log(err);

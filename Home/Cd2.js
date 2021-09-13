@@ -1,21 +1,43 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import {HOST} from "../env/env"
-function Cd2({event}) {
+
+import Link from "next/link" 
+
+function Cd2({event,url}) {
+
+	const date=new Date(event.created_at)
+const patt=/\n/;
+	
 	return (
-		<Card>
+		
+		<Link href={url} passHref>
+		<Card className="cursor">
+	
+		<>
 			<Card.Img variant='top' src={`${HOST}${event.headerimage.url}`} />
 			<Card.Body>
-				<Card.Title>{event.causename}</Card.Title>
-				<Card.Text>
-					This is a wider card with supporting text below as a natural lead-in
-					to additional content. This content is a little bit longer.
+				<Card.Title className="myprimary-text" >{event.causename}</Card.Title>
+				<Card.Text className="mysecondary-text " >
+					{event.eventdetails.slice(event.eventdetails.search(patt),(event.eventdetails.search(patt)+100))}.....
+
+					
 				</Card.Text>
 			</Card.Body>
 			<Card.Footer>
-				<small className='text-muted'>Last updated {event.created_at} mins ago</small>
+				<small className='text-muted'>Added on {date.toString().slice(0,10)} </small>
 			</Card.Footer>
-		</Card>
+			</>
+		
+		
+		</Card> 
+		</Link>
+		
+	
+		 
+	
+		
+	
 	);
 }
 

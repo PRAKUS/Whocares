@@ -1,15 +1,18 @@
 import axios from "axios";
-import React,{useState} from "react";
-import { Card, Row, Col, Form, Button, Image } from "react-bootstrap";
-import {ErrorHandler} from "../global/index"
+import React,{useState,useEffect} from "react";
+import { Card, Row, Col, Form, Button, Image,Modal } from "react-bootstrap";
+
+import {HOST} from "../env/env";
 
 
 function FeedHunger() {
 
-
+useEffect(()=>{
+	window.scroll(0, 0);
+},[])
 const [input,setInput]=useState({first_name:"",last_name:"",occasion:"",phone_number:""});
-const [statusCode,setStatusCode]=useState();
-
+const [status, setstatus] = useState();
+const [show, setShow] = useState(false);
 
 const inputHandler=(event)=>{
 	event.preventDefault();
@@ -22,27 +25,73 @@ const inputHandler=(event)=>{
 const submitHandler=async(event)=>{
 	event.preventDefault()
 	try{
-		const req=await axios.post(`${HOST}fooddonations`,input);
-		setStatusCode(req.status)
-		console.log(req)
-		setInput({first_name:"",last_name:"",occasion:"",phone_number:""})
+		const req=await axios.post(`${HOST}/fooddonations`,input);
+		statusHandler(req);
+			setShow(true);
+		
 	}catch(err){
+		statusHandler(err);
+			setShow(true);
 		console.log(err)
 	}
-	
+	setInput({first_name:"",last_name:"",occasion:"",phone_number:""})
 }
+const statusHandler = (data) => {
+	console.log(data);
+	if (data.status === 200) {
+		setstatus(successModal);
+	} else {
+		setstatus(errmodal);
+	}
+};
+
+const errmodal = () => {
+	return (
+		<>
+			<Modal.Header closeButton className='text-danger'>
+				Error
+			</Modal.Header>
+			<Modal.Body>
+				<p className='text-danger'>Something Went wrong please try again</p>
+			</Modal.Body>
+		</>
+	);
+};
+
+const successModal = () => {
+	return (
+		<>
+			<Modal.Header closeButton className='text-success'>
+				Success
+			</Modal.Header>
+			<Modal.Body>
+				<p className='text-success'>
+					Thank you for contacting us. We will contact you.
+				</p>
+			</Modal.Body>
+		</>
+	);
+};
 
 
 
 
 	return (
 		<div>
-				<ErrorHandler status={statusCode}/>
+				<Modal
+				show={show}
+				backdrop='static'
+				keyboard={false}
+				onHide={() => {
+					setShow(false);
+				}}>
+				{status}
+			</Modal>
 			<section className='overflow-hidden'>
 				<Card>
 					<Card.Img src='images/voklaivojanCover.png' />
 					<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
-						<p className='text-white '>Working for the Unseen side of socity</p>
+						<p className='text-white h1'>Voko Lai Bojan</p>
 					</Card.ImgOverlay>
 				</Card>
 			</section>
@@ -86,7 +135,7 @@ const submitHandler=async(event)=>{
 					</p>
 
 					<Row>
-						<Col xs={6} sm={6}>
+						<Col xs={12} sm={12} md={6}>
 							<Form onSubmit={submitHandler}>
 								<Form.Row>
 									<Form.Group as={Col} controlId='firstname'>
@@ -101,7 +150,7 @@ const submitHandler=async(event)=>{
 
 								<Form.Group controlId='firstname'>
 									<Form.Label>Ocassion</Form.Label>
-									<Form.Control type='text' name="occasion" value={input.ocassion} onChange={inputHandler}  placeholder='Ocassion' />
+									<Form.Control type='text' name="occasion" value={input.occasion} onChange={inputHandler}  placeholder='Ocassion' />
 								</Form.Group>
 
 								<Form.Group controlId='phonenumber'>
@@ -115,7 +164,7 @@ const submitHandler=async(event)=>{
 							</Form>
 						</Col>
 						<Col className='d-flex justify-content-center align-items-center'>
-							<Image src='images/icon/fooddonation.png' alt=""/>
+							<Image src='images/icon/fooddonation.png' className="clipcart w-100" alt=""/>
 						</Col>
 					</Row>
 			

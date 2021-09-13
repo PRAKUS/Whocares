@@ -10,4 +10,5 @@
 	export {default as CommentForm}  from "./CommentForm";
 	export {default as Comment} from  "./Comment";
 	export {default as ErrorHandler}  from "./ErrorHandler";
+	export {default as Detail} from "./Detail"
 

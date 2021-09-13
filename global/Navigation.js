@@ -31,12 +31,12 @@ const Navigation = (props) => {
 				<Navbar.Toggle aria-controls='responsive-navbar-nav' />
 				<Navbar.Collapse id='responsive-navbar-nav'>
 					<Nav className='ml-auto text-white' activeKey='/home'>
-						<Nav.Item>
+						<Nav.Item >
 							<Link href='/'>
 								<p className='my-orange nav-link m-0 cursor'>Home</p>
 							</Link>
 						</Nav.Item>
-						<Nav.Item>
+						<Nav.Item >
 							<Link
 								href='/about'
 								className='my-orange nav-link'
@@ -44,7 +44,7 @@ const Navigation = (props) => {
 								<p className='my-orange nav-link m-0 cursor'>About</p>
 							</Link>
 						</Nav.Item>
-						<Nav.Item>
+						<Nav.Item >
 							<Link
 								href='/event'
 								className='my-orange nav-link'
@@ -52,7 +52,7 @@ const Navigation = (props) => {
 								<p className='my-orange nav-link m-0 cursor'>Events</p>
 							</Link>
 						</Nav.Item>
-						<Nav.Item>
+						<Nav.Item >
 							<Link
 								href='/getinvolved'
 								className='my-orange nav-link'
@@ -61,7 +61,7 @@ const Navigation = (props) => {
 							</Link>
 						</Nav.Item>
 
-						<Nav.Item>
+						<Nav.Item >
 							<Link href='/gallery' className='my-orange nav-link' eventKey='link-3'>
 								<p className='my-orange nav-link m-0 cursor'>Our Gallery</p>
 							</Link>

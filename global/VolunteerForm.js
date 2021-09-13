@@ -15,7 +15,7 @@ export default function VolunteerForm() {
 	);
 	const [status, setstatus] = useState();
 	const [show, setShow] = useState(false);
-	let url = `${HOST}volunteerregistrations`;
+	let url = `${HOST}/volunteerregistrations`;
 	const inputHandler = (event) => {
 		event.preventDefault();
 		setInput((input) => ({

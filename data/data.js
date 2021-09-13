@@ -16,7 +16,7 @@ const service = [
 		icon: "images/icon/hunger.png",
 		icon_description: "logo",
 		header: "Feeding The Hungry",
-		des: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+		des: "feeding the hungry on streets every night.",
 		url: "/feedhunger",
 	},
 	{
@@ -37,15 +37,22 @@ const service = [
 		icon: "images/icon/volunteer-black.png",
 		icon_description: "logo",
 		header: "Volunteer",
-		des: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-		url: "/Volunteer",
+		des: "Taking care of street dwellers by cleaning, bathing, feeding, clothing in a regular basis.Conducting last rites of unclaimed dead bodies from different places and hospitals",
+		url: "/getinvolved",
 	},
 	{
 		icon: "images/icon/fundraise-black.png",
 		icon_description: "logo",
 		header: "Fund Raise",
 		des: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-		url: "/FundRaise",
+		
+	},
+	{
+		icon: "images/icon/fundraise-black.png",
+		icon_description: "logo",
+		header: "Enviroment Protection",
+		des: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+		
 	},
 ];
 
