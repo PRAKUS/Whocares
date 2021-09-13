@@ -5,168 +5,7 @@ body {
 .cursor {
 	cursor: pointer;
 }
-a {
-	cursor: pointer;
-}
-.h2,
-.h1,
-.h3,
-.h4,
-.h5,
-.h6 {
-	font-family: Rubik;
-}
 
-.eventimgbg{
-	transition: all 0.5s;
-height:250px;
-}
-.cardmargin {
-	transition: all 0.5s;
-	margin-top: 30%;
-}
-
-.clipcart{
-	transition: all 0.5s;
-	max-width: 600px;
-}
-
-.sliderContainer{
-	max-height: 230px;
-}
-.photo{
-	max-height: 300px;
-}
-
-@media (min-width:801px)and (max-width:1200px){
-	.sliderContainer{
-		transition: all 0.5s;
-		max-height: 180px;
-	}
-
-	.photo{
-		max-height: 300px;
-	}
-	.clipcart{
-		transition: all 0.5s;
-		max-width: 600px;
-	}
-	.eventimgbg{
-		transition: all 0.5s;
-		height:230px;
-	}
-	.cardmargin {
-		transition: all 0.5s;
-		margin-top: 45%;
-	}
-}
-
-
-
-@media (min-width:421px)and (max-width:800px){
-
-	
-	.photo{
-		max-height: 160px;
-	}
-	.sliderContainer{
-		transition: all 0.5s;
-		max-height: 210px;
-	}
-	
-	.clipcart{
-		transition: all 0.5s;
-		max-width: 500px;
-	}
-	.h6 {
-		transition: all 0.5s;
-		font-size: 10px;
-	}
-	.h5 {
-		transition: all 0.5s;
-		font-size: 13px;
-	}
-	.h4 {
-		transition: all 0.5s;
-		font-size: 14px !important;
-	}
-	.h3 {
-		transition: all 0.5s;
-		font-size: 16px;
-	}
-	.h2 {
-		transition: all 0.5s;
-		font-size: 24px;
-	}
-	.h1 {
-		transition: all 0.5s;
-		font-size: 30px;
-	}
-
-	.p1 {
-		transition: all 0.5s;
-		font-size: 13px;
-	}
-	
-
-}
-@media (max-width: 420px) {
-	.sliderContainer{
-		max-height: 200px;
-	}
-	.clipcart{
-		transition: all 0.5s;
-		max-width: 300px;
-	}
-	.photo{
-		max-height: 80px;
-	}
-
-	.eventimgbg{
-		transition: all 0.5s;
-		max-height:400px;
-		}
-	.sm-card {
-		transition: all 0.5s;
-		transition: all 0.5s;
-		min-height: 400px;
-		width: 100%;
-	}
-
-	.p1 {
-		transition: all 0.5s;
-		font-size: 10px;
-	}
-	.h6 {
-		font-size: 10px;
-	}
-	.h5 {
-		transition: all 0.5s;
-		font-size: 12px;
-	}
-	.h4 {
-		transition: all 0.5s;
-		font-size: 14px;
-	}
-	.h3 {
-		transition: all 0.5s;
-		font-size: 15px;
-	}
-	.h2 {
-		transition: all 0.5s;
-		font-size: 16px;
-	}
-	.h1 {
-		transition: all 0.5s;
-		font-size: 18px;
-	}
-	.postcontainer {
-		transition: all 0.5s;
-		max-width: 400px;
-		margin: 0 2%;
-		padding-top: 3%;
-	}
-}
 
 .photoDisplay{
 	position: -webkit-sticky;
@@ -298,12 +137,7 @@ height:250px;
 	background-attachment: fixed;
 	background-size: cover;
 }
-.postcontainer {
-	transition: all 0.5s;
-	max-width: 1000px;
-	margin: 0 12%;
-	padding-top: 3%;
-}
+
 .markdown {
 }
 .markdown > h1,
@@ -317,5 +151,191 @@ h6 {
 }
 .markdown > p {
 	color: var(--mysecondary);
+}
+
+
+
+
+
+a {
+	cursor: pointer;
+}
+.h2,
+.h1,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: Rubik;
+}
+
+.eventimgbg{
+	transition: all 0.5s;
+height:250px;
+}
+.cardmargin {
+	transition: all 0.5s;
+	margin-top: 30%;
+}
+
+.clipcart{
+	transition: all 0.5s;
+	max-width: 600px;
+}
+
+.sliderContainer{
+	max-height: 230px;
+}
+.photo{
+	max-height: 300px;
+}
+.postcontainer {
+	transition: all 0.5s;
+	max-width: 1000px;
+	margin: 0 12%;
+	padding-top: 3%;
+}
+
+@media (min-width:801px)and (max-width:1200px){
+	.sliderContainer{
+		transition: all 0.5s;
+		max-height: 180px;
+	}
+
+	.photo{
+		max-height: 300px;
+	}
+	.clipcart{
+		transition: all 0.5s;
+		max-width: 600px;
+	}
+	.eventimgbg{
+		transition: all 0.5s;
+		height:230px;
+	}
+	.cardmargin {
+		transition: all 0.5s;
+		margin-top: 45%;
+	}
+	.postcontainer {
+		transition: all 0.5s;
+		max-width: 900px;
+		margin: 0 4%;
+		padding-top: 3%;
+	}
+}
+
+
+
+@media (min-width:421px)and (max-width:800px){
+
+	.postcontainer {
+		transition: all 0.5s;
+		max-width: 600px;
+		margin: 0 2%;
+		padding-top: 3%;
+	}
+	
+	.photo{
+		max-height: 160px;
+	}
+	.sliderContainer{
+		transition: all 0.5s;
+		max-height: 210px;
+	}
+	
+	.clipcart{
+		transition: all 0.5s;
+		max-width: 500px;
+	}
+	.h6 {
+		transition: all 0.5s;
+		font-size: 10px;
+	}
+	.h5 {
+		transition: all 0.5s;
+		font-size: 13px;
+	}
+	.h4 {
+		transition: all 0.5s;
+		font-size: 14px !important;
+	}
+	.h3 {
+		transition: all 0.5s;
+		font-size: 16px;
+	}
+	.h2 {
+		transition: all 0.5s;
+		font-size: 24px;
+	}
+	.h1 {
+		transition: all 0.5s;
+		font-size: 30px;
+	}
+
+	.p1 {
+		transition: all 0.5s;
+		font-size: 13px;
+	}
+	
+
+}
+@media (max-width: 420px) {
+	.sliderContainer{
+		max-height: 200px;
+	}
+	.clipcart{
+		transition: all 0.5s;
+		max-width: 300px;
+	}
+	.photo{
+		max-height: 80px;
+	}
+
+	.eventimgbg{
+		transition: all 0.5s;
+		max-height:400px;
+		}
+	.sm-card {
+		transition: all 0.5s;
+		transition: all 0.5s;
+		min-height: 400px;
+		width: 100%;
+	}
+	
+
+	.p1 {
+		transition: all 0.5s;
+		font-size: 10px;
+	}
+	.h6 {
+		font-size: 10px;
+	}
+	.h5 {
+		transition: all 0.5s;
+		font-size: 12px;
+	}
+	.h4 {
+		transition: all 0.5s;
+		font-size: 14px;
+	}
+	.h3 {
+		transition: all 0.5s;
+		font-size: 15px;
+	}
+	.h2 {
+		transition: all 0.5s;
+		font-size: 16px;
+	}
+	.h1 {
+		transition: all 0.5s;
+		font-size: 18px;
+	}
+	.postcontainer {
+		transition: all 0.5s;
+		max-width: 500px;
+		margin: 0 2%;
+		padding-top: 3%;
+	}
 }
 

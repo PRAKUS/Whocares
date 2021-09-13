@@ -1,7 +1,8 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import EventContext from "./EventContext";
 import eventReducer from "./EventReducer";
 import { Fetch_All, Fetch_Header } from "./eventAction";
+import {HOST} from "../../env/env"
 import axios from "axios";
 const initialState = {
 	events: [],
@@ -12,7 +13,7 @@ function EventState(props) {
 	const [state, eventDispatch] = useReducer(eventReducer, initialState);
 
 	useEffect(async () => {
-		const response = await axios.get(`http://localhost:1337/events`);
+		const response = await axios.get(`${HOST}/events`);
 		const event = response.data;
 		try {
 			eventDispatch({ type: Fetch_All, payload: event });
