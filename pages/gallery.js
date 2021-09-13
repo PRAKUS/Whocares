@@ -58,7 +58,7 @@ function Gallery({photo}) {
     
     return (
         <div>
-           <section style={{maxHeight:"400px"}}>
+           <section >
 				<Card >
 					<Card.Img  src='images/about.png' />
 					<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>

@@ -12,7 +12,7 @@ const patt=/\n/;
 	return (
 		
 		<Link href={url} passHref>
-		<Card className="cursor">
+		<Card className="cursor" style={{maxWidth:"400px"}}>
 	
 		<>
 			<Card.Img variant='top' src={`${HOST}${event.headerimage.url}`} />
