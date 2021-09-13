@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import EventContext from "./EventContext";
 import eventReducer from "./EventReducer";
 import { Fetch_All, Fetch_Header } from "./eventAction";
