@@ -12,14 +12,13 @@ import { HOST } from "../env/env";
 const Detail = ({ post ,endpoints}) => {
 	let [commentchecker,setComment]=useState(post.comments)
 
+	
 
 	const commentHandler=async(req)=>{
-		console.log(req.id)
 		try{const res = await axios.get(
 			`${HOST}/${endpoints}/${req.id}`,
 		);
 		const post = res.data.comments;
-		console.log(post);
 		setComment(post)}catch(err){console.log(err)}
 		
 	}
