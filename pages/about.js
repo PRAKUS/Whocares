@@ -7,6 +7,7 @@ import { FaDonate } from "react-icons/fa";
 import axios from "axios";
 import {HOST} from "../env/env"
 import { service } from "../data/data";
+import Head from "next/head"
 
 function About({photos}) {
 	useEffect(() => {
@@ -14,6 +15,9 @@ function About({photos}) {
 	}, []);
 	return (
 		<div>
+			<Head>
+				<title>About:Whocares</title>
+			</Head>
 			<section>
 				<Card>
 					<Card.Img src='images/about.png' />

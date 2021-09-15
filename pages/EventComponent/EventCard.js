@@ -6,6 +6,8 @@ import Link from "next/link";
 import {HOST} from "../../env/env"
 
 const EventCard = (props) => {
+
+	console.log(props)
 	const [month, setmonth] = useState();
 	const [date,setDate]=useState();
 	const [events, setEvent] = useState({
@@ -14,13 +16,11 @@ const EventCard = (props) => {
 		startdate: "",
 		location: "",
 		headerimage: {
-			formats: {
-				medium: {
+		
 					url: "",
 					name: "",
 				},
-			},
-		},
+		
 	});
 
 	const [time, setTime] = useState();
@@ -35,6 +35,7 @@ const EventCard = (props) => {
 			console.log(err);
 		}
 	}, [props.event, events.startdate]);
+
 
 	const timeFormater = () => {
 		try {
@@ -64,7 +65,7 @@ const EventCard = (props) => {
 			<Link href={`${props.endpoint}/${events.id}`} passHref>
 				<Card className=' overflow-hidden eventimgbg' >
 					<Card.Img
-						src={`${HOST}${events.headerimage.formats.medium.url}`}
+						src={`${HOST}${events.headerimage.url}`}
 						className='h-100 w-100' 
 					/>
 					<Card.ImgOverlay className='banner-overlay'>
