@@ -3,12 +3,16 @@ import { Card, Row, Col,Image } from "react-bootstrap";
 import { IoFastFood, IoPeople } from "react-icons/io5";
 import { FaDonate } from "react-icons/fa";
 import { VolunteerForm } from "../global/index";
+import Head from "next/head";
 function GetInvolved() {
 	useEffect(()=>{
 		window.scroll(0, 0);
 	},[])
 	return (
 		<div>
+			<Head>
+				<title>Get Involved:Whocares</title>
+			</Head>
 			<section className='overflow-hidden'>
 				<Card>
 					<Card.Img src='images/about.png' alt=""/>

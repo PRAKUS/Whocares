@@ -2,12 +2,16 @@ import React,{useEffect} from "react";
 import { Card, Row, Col, Carousel, Image } from "react-bootstrap";
 import { Cd1 } from "../Home";
 import {StaffList} from "../global/index"
+import Head from "next/head";
 function OldAge() {
 	useEffect(() => {
 		window.scroll(0, 0);
 	}, []);
 	return (
 		<div>
+			<Head>
+				<title>Old Age Home:Whocares</title>
+			</Head>
 			<section className='overflow-hidden' style={{maxHeight:"400px"}}>
 				<Card>
 					<Card.Img src='images/oldagehome.png' style={{marginTop:"-15%"}} alt=""/>

@@ -65,7 +65,7 @@ function GEventCard(props) {
 				className='h-100 overflow-hidden cursor'
 				style={{ maxHeight: "350px" }}>
 				<Card.Img
-					src={`${HOST}${events.headerimage.formats.medium.url}`}
+					src={`${HOST}${events.headerimage.formats.medium!=undefined?events.headerimage.formats.medium.url:events.headerimage.url||events.headerimage.formats.small.url}`}
 				/>
 				<Card.ImgOverlay className='banner-overlay'>
 					<Card.Footer className='text-white border-0 cardmargin'>

@@ -4,6 +4,7 @@ import { Row, Card ,Col} from "react-bootstrap";
 import EventContext from "../Context/EventContext/EventContext";
 import axios from "axios";
 import {HOST} from "../env/env"
+import Head from "next/head";
 
 function Events({recentEvents}) {
 	const { state } = useContext(EventContext);
@@ -36,6 +37,9 @@ function Events({recentEvents}) {
 	};
 	return (
 		<div>
+			<Head>
+				<title>Event:Whocares</title>
+			</Head>
 			<section>
 				<Card>
 					<Card.Img src='images/about.png' />

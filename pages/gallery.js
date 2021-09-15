@@ -4,6 +4,7 @@ import {Card} from "react-bootstrap"
 import {PhotoGallery} from "../global/"
 import {HOST} from "../env/env"
 import { BiRightArrow, BiLeftArrow } from "react-icons/bi";
+import Head from "next/head";
 
 
 const Album=(props)=>{
@@ -58,6 +59,9 @@ function Gallery({photo}) {
     
     return (
         <div>
+            <Head>
+				<title>Gallery:Whocares</title>
+			</Head>
            <section >
 				<Card >
 					<Card.Img  src='images/about.png' />

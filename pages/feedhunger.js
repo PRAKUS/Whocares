@@ -3,6 +3,7 @@ import React,{useState,useEffect} from "react";
 import { Card, Row, Col, Form, Button, Image,Modal } from "react-bootstrap";
 
 import {HOST} from "../env/env";
+import Head from "next/head";
 
 
 function FeedHunger() {
@@ -78,6 +79,9 @@ const successModal = () => {
 
 	return (
 		<div>
+			<Head>
+				<title>Voak Lai Vojan:Whocares</title>
+			</Head>
 				<Modal
 				show={show}
 				backdrop='static'

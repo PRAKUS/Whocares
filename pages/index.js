@@ -24,9 +24,11 @@ import{HOST} from "../env/env"
 
 
 
+
+
 function Home({photos,recentEvent}) {
 
-	console.log(photos)
+	
 
 	const { state } = useContext(EventContext);
 
