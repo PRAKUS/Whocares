@@ -21,6 +21,7 @@ import EventContext from "../Context/EventContext/EventContext";
 import Link from "next/link";
 import axios from "axios";
 import{HOST} from "../env/env"
+import ScrollAnimation from "react-animate-on-scroll";
 
 
 
@@ -89,13 +90,22 @@ function Home({photos,recentEvent}) {
 				<div className=' container'>
 					<Row>
 						<Col xsm={12} sm={12} md={4}>
+							<ScrollAnimation animateOnce={true} animateIn="animate__fadeInDownBig" >
 							<Cd1 img="/images/icon/donate.png"></Cd1>
+							</ScrollAnimation>
+						
 						</Col>
 						<Col xsm={12} sm={12} md={4}>
-							<Cd1 img='/images/icon/fundraise.png'></Cd1>
+							<ScrollAnimation animateOnce={true} animateIn="animate__fadeInDownBig" delay={300}>
+							<Cd1 img="/images/icon/fundraise.png"></Cd1>
+							</ScrollAnimation>
+						
 						</Col>
 						<Col xsm={12} sm={12} md={4}>
-							<Cd1 img='/images/icon/volunteer.png'></Cd1>
+						<ScrollAnimation animateOnce={true} animateIn="animate__fadeInDownBig" delay={600}>
+							<Cd1 img="/images/icon/volunteer.png"></Cd1>
+							</ScrollAnimation>
+							
 						</Col>
 					</Row>
 				</div>
@@ -104,6 +114,8 @@ function Home({photos,recentEvent}) {
 				<div className=' container section-mgap'>
 					<Row>
 						<Col xsm={12} sm={12} md={6}>
+							<ScrollAnimation animateOnce={true} animateIn="animate__fadeInLeft" >
+				
 							<p className='primary-title myprimary-text'>About us</p>
 							<p className='mysecondary-text justify-text p1'>
 							WHO CARES is one of the largest and Social organization started from Kalimpong, 
@@ -117,14 +129,24 @@ function Home({photos,recentEvent}) {
 							<Link href='/about' passHref>
 								<Button className='border-0 myorange-bg p1'>Read More</Button>
 							</Link>
+							</ScrollAnimation>
 						</Col>
+					
 						<Col xsm={12} sm={12} md={6} className='d-flex flex-column'>
 							<label className='text-center primary-title myprimary-text  '>
 								Our Activities
 							</label>
-							<MissionCard missioncard={service[0]} />
-							<MissionCard missioncard={service[1]} />
-							<MissionCard missioncard={service[2]} />
+							<ScrollAnimation animateOnce={true} animateIn="animate__fadeInRight"> 
+								<MissionCard missioncard={service[0]} />
+							</ScrollAnimation>
+							<ScrollAnimation animateOnce={true} animateIn="animate__fadeInRight" delay={200}>
+								<MissionCard missioncard={service[1]} />
+							</ScrollAnimation>
+							<ScrollAnimation animateOnce={true} animateIn="animate__fadeInRight" delay={300}>
+								<MissionCard missioncard={service[2]} />
+							</ScrollAnimation>
+						
+							
 						</Col>
 					</Row>
 				</div>
@@ -164,6 +186,7 @@ function Home({photos,recentEvent}) {
 						</header>
 						{eventCount>0?<Row>
 							<Col md={6}>
+								<ScrollAnimation animateOnce={true} animateIn="animate__fadeIn">
 								<GEventCard
 									event={
 										state.events != "undefined"
@@ -171,6 +194,8 @@ function Home({photos,recentEvent}) {
 											: ""
 									}
 								/>
+								</ScrollAnimation>
+								
 							</Col>
 							<Col md={3} className=' m-0'>
 								<ul className='list-inline m-0'>{list}</ul>
@@ -225,6 +250,7 @@ export  async  function getServerSideProps(){
 	if(count.data>1){
 	let data=parseInt(Math.random() * (count.data - 1) + 1);
 	const photo=await axios.get(`${HOST}/photoalbums/${data}`);
+	
 	const RecentEvent=await axios.get(`${HOST}/recent-events`);
 	let recentEvent=RecentEvent.data;
 

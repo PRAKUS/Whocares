@@ -79,6 +79,7 @@ function Gallery({photo}) {
                     <BiRightArrow className=" button  buttonRight " onClick={prev} />
              
                 <div ref={slides} className="d-flex flex-row"  >
+                    {console.log(photo)}
                {photo.map((photo,index)=>{
                 return(<Album key={index} ablumname={photo.albumname} photo={photo.photos[0].url} onClick={()=>{setSelectlbum(index)}} />)
                    

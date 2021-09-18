@@ -25,7 +25,7 @@ const Navigation = (props) => {
 					<img
 						style={style.logoSize}
 						alt='logo'
-						src={`${HOST}/uploads/logo_9b5ab53b51.png`}
+						src="https://whocare.s3.amazonaws.com/logo_370095b24c.png"
 					/>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='responsive-navbar-nav' />

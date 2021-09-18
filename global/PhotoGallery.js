@@ -13,6 +13,8 @@ function ImageContainer(props) {
 }
 
 function PhotoGallery({photo}) {
+
+	console.log(photo)
 	const[singlePhoto,setSinglePhoto]=useState("none");
 	const[sliderCount,setSliderCount]=useState(0);
 	let photos=[]

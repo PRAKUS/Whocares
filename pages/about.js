@@ -8,6 +8,7 @@ import axios from "axios";
 import {HOST} from "../env/env"
 import { service } from "../data/data";
 import Head from "next/head"
+import ScrollAnimation from "react-animate-on-scroll"
 
 function About({photos}) {
 	useEffect(() => {
@@ -59,43 +60,52 @@ function About({photos}) {
 							xs={12}
 							sm={12}
 							md={4}
-							className='d-flex justify-content-center align-items-center flex-column'>
-							<IoFastFood size='3em' />
-							<p className='text-center primary-title my-orange mb-0'>
-								Food Donation
-							</p>
-							<p className='text-center mysecondary-text mt-0'>
-								Lorem ipsum dolor sit amet, qui minim labore adipisicing minim
-								sint cillum sint consectetur cupidatat.
-							</p>
+							>
+							<ScrollAnimation className='d-flex justify-content-center align-items-center flex-column' animateOnce={true} animateIn="animate__fadeInUp" >
+								<IoFastFood size='3em' />
+								<p className='text-center primary-title my-orange mb-0'>
+									Food Donation
+								</p>
+								<p className='text-center mysecondary-text mt-0'>
+									Lorem ipsum dolor sit amet, qui minim labore adipisicing minim
+									sint cillum sint consectetur cupidatat.
+								</p>
+							</ScrollAnimation>
+						
 						</Col>
 						<Col
 							xs={12}
 							sm={12}
 							md={4}
-							className='d-flex justify-content-center align-items-center flex-column'>
-							<IoPeople size='3em' />
-							<p className='text-center primary-title my-orange  mb-0'>
+						>
+							<ScrollAnimation 	className='d-flex justify-content-center align-items-center flex-column' animateOnce={true} animateIn="animate__fadeInUp" delay={150}>
+								<IoPeople size='3em' />
+								<p className='text-center primary-title my-orange  mb-0'>
 								Volunteer
-							</p>
-							<p className='text-center mysecondary-text mt-0'>
+								</p>
+								<p className='text-center mysecondary-text mt-0'>
 								Lorem ipsum dolor sit amet, qui minim labore adipisicing minim
 								sint cillum sint consectetur cupidatat.
-							</p>
+								</p>
+							</ScrollAnimation>
+							
 						</Col>
 						<Col
 							xs={12}
 							sm={12}
 							md={4}
-							className='d-flex justify-content-center align-items-center flex-column'>
-							<FaDonate size='3em' />
-							<p className='text-center primary-title my-orange mb-0'>
+							>
+							<ScrollAnimation className='d-flex justify-content-center align-items-center flex-column' animateOnce={true} animateIn="animate__fadeInUp" delay={300}>
+								<FaDonate size='3em' />
+								<p className='text-center primary-title my-orange mb-0'>
 								Providing Donation
-							</p>
-							<p className='text-center mysecondary-text mt-0'>
+								</p>
+								<p className='text-center mysecondary-text mt-0'>
 								Lorem ipsum dolor sit amet, qui minim labore adipisicing minim
 								sint cillum sint consectetur cupidatat.
-							</p>
+								</p>
+							</ScrollAnimation>
+							
 						</Col>
 					</Row>
 				</div>
@@ -110,15 +120,27 @@ function About({photos}) {
 						</header>
 						<Row>
 						<Col xsm={12} sm={12} md={6} className='d-flex flex-column'>
-							<MissionCard shadow={true} missioncard={service[0]} />
-							<MissionCard shadow={true} missioncard={service[1]} />
-							<MissionCard shadow={true} missioncard={service[2]} />
+						<ScrollAnimation animateIn="animate__fadeInLeft" animateOnce={true}> 
+								<MissionCard shadow={true}  missioncard={service[0]} />
+							</ScrollAnimation>
+							<ScrollAnimation animateIn="animate__fadeInLeft" delay={200} animateOnce={true}>
+								<MissionCard shadow={true} missioncard={service[1]} />
+							</ScrollAnimation>
+							<ScrollAnimation animateIn="animate__fadeInLeft" delay={300} animateOnce={true}>
+								<MissionCard shadow={true} missioncard={service[2]} />
+							</ScrollAnimation>
 						</Col>
 						<Col xsm={12} sm={12} md={6} className='d-flex flex-column'>
 							
-							<MissionCard shadow={true} missioncard={service[3]} />
-							<MissionCard shadow={true} missioncard={service[4]} />
-							<MissionCard shadow={true} missioncard={service[5]} />
+						<ScrollAnimation animateIn="animate__fadeInRight" animateOnce={true}> 
+								<MissionCard shadow={true} missioncard={service[3]} />
+							</ScrollAnimation>
+							<ScrollAnimation animateIn="animate__fadeInRight" delay={200} animateOnce={true}>
+								<MissionCard shadow={true} missioncard={service[4]} />
+							</ScrollAnimation>
+							<ScrollAnimation animateIn="animate__fadeInRight" delay={300} animateOnce={true}>
+								<MissionCard shadow={true} missioncard={service[5]} />
+							</ScrollAnimation>
 						</Col>
 					</Row>
 						
