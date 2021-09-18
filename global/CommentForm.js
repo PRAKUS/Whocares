@@ -15,7 +15,7 @@ const CommentForm = ({endpoints,post,commentrefresh}) => {
 		}));
 	}
 	useEffect(()=>{
-		console.log(endpoints)
+		
 		if(endpoints==="events"){
 			setComment({...comment,event:post})
 		}
@@ -31,11 +31,13 @@ const CommentForm = ({endpoints,post,commentrefresh}) => {
 	const submitHandler= async(event)=>{
 		event.preventDefault();
 		try{
-			console.log(comment)
+		
 			const req=axios.post(`${HOST}/comments/`,comment);
-			console.log(req)
+			
 			setComment({name:"",email:"",comment:"",event:{},recent_event:{}});
+
 			commentrefresh(post);
+			
 		}
 		catch (err){
 				console.log(err);

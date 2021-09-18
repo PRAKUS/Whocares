@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "animate.css/animate.min.css";
 import "../styles/globals.css";
 import Layout from "../global/Layout";
 

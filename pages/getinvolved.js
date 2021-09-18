@@ -4,6 +4,7 @@ import { IoFastFood, IoPeople } from "react-icons/io5";
 import { FaDonate } from "react-icons/fa";
 import { VolunteerForm } from "../global/index";
 import Head from "next/head";
+import ScrollAnimation from "react-animate-on-scroll";
 function GetInvolved() {
 	useEffect(()=>{
 		window.scroll(0, 0);
@@ -35,43 +36,51 @@ function GetInvolved() {
 							xs={12}
 							sm={12}
 							md={4}
-							className='d-flex justify-content-center align-items-center flex-column'>
-							<IoFastFood color="#373d57" size='3em' />
-							<p className='text-center primary-title my-orange mb-0'>
-								Food Donation
-							</p>
-							<p className='text-center mysecondary-text mt-0'>
-								Lorem ipsum dolor sit amet, qui minim labore adipisicing minim
-								sint cillum sint consectetur cupidatat.
-							</p>
+							>
+							<ScrollAnimation className='d-flex justify-content-center align-items-center flex-column' animateOnce={true} animateIn="animate__fadeInUp">
+								<IoFastFood color="#373d57" size='3em' />
+								<p className='text-center primary-title my-orange mb-0'>
+									Food Donation
+								</p>
+								<p className='text-center mysecondary-text mt-0'>
+									Lorem ipsum dolor sit amet, qui minim labore adipisicing minim
+									sint cillum sint consectetur cupidatat.
+								</p>
+							</ScrollAnimation>
+							
+						</Col>
+						<Col
+							xs={12}
+							sm={12}
+							md={4}>
+							<ScrollAnimation className='d-flex justify-content-center align-items-center flex-column' animateOnce={true} animateIn="animate__fadeInUp" delay={150}> 
+								<IoPeople size='3em' color="#373d57"/>
+								<p className='text-center primary-title my-orange  mb-0'>
+									Volunteer
+								</p>
+								<p className='text-center mysecondary-text mt-0'>
+									Lorem ipsum dolor sit amet, qui minim labore adipisicing minim
+									sint cillum sint consectetur cupidatat.
+								</p>
+							</ScrollAnimation>
+							
 						</Col>
 						<Col
 							xs={12}
 							sm={12}
 							md={4}
-							className='d-flex justify-content-center align-items-center flex-column'>
-							<IoPeople size='3em' color="#373d57"/>
-							<p className='text-center primary-title my-orange  mb-0'>
-								Volunteer
-							</p>
-							<p className='text-center mysecondary-text mt-0'>
+							>
+							<ScrollAnimation className='d-flex justify-content-center align-items-center flex-column' animateOnce={true} animateIn="animate__fadeInUp" delay={300} >
+								<FaDonate size='3em' color="#373d57" />
+								<p className='text-center primary-title my-orange mb-0'>
+									Sponsoring Cause
+								</p>
+								<p className='text-center mysecondary-text mt-0'>
 								Lorem ipsum dolor sit amet, qui minim labore adipisicing minim
 								sint cillum sint consectetur cupidatat.
-							</p>
-						</Col>
-						<Col
-							xs={12}
-							sm={12}
-							md={4}
-							className='d-flex justify-content-center align-items-center flex-column'>
-							<FaDonate size='3em' color="#373d57" />
-							<p className='text-center primary-title my-orange mb-0'>
-								Sponsoring Cause
-							</p>
-							<p className='text-center mysecondary-text mt-0'>
-								Lorem ipsum dolor sit amet, qui minim labore adipisicing minim
-								sint cillum sint consectetur cupidatat.
-							</p>
+								</p>
+							</ScrollAnimation>
+							
 						</Col>
 					</Row>
 				</div>
@@ -84,10 +93,13 @@ function GetInvolved() {
 
 					<Row>
 						<Col xs={12} sm={12} md={12} lg={6} className='d-flex justify-content-center align-items-center'>
-							<Image className="clipcart w-100" src='images/5299.jpg' alt=""/>
+							<ScrollAnimation animateIn="animate__fadeIn" animateOnce={true} duration={2.5}><Image className="clipcart w-100" src='images/5299.jpg' alt=""/></ScrollAnimation>
 						</Col>
 						<Col xs={12} sm={12} md={12} lg={6} >
-							<VolunteerForm />
+						<ScrollAnimation animateIn="animate__fadeInRight" >
+						<VolunteerForm />
+						</ScrollAnimation>
+							
 						</Col>
 					</Row>
 				</div>

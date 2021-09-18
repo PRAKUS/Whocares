@@ -89,7 +89,7 @@ const Footer = () => {
 				<Row>
 					<Col xl={3} lg={3} md={3} sm={12} xs={12} className='pt-4 '>
 						<img
-							src={`${HOST}/uploads/logo_9b5ab53b51.png`}
+							src="https://whocare.s3.amazonaws.com/logo_370095b24c.png"
 							style={{ height: "40px" }}
 							alt='logo'
 						/>
