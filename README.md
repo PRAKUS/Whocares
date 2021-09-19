@@ -14,7 +14,7 @@ Tech Stack: {
     "Backend":{
         "CMS":"Strapi",
         "Database":"MongoDB(ATLAS)",
-        "Stroge":"AWS:S3 Bucket"
+        "Stroage":"AWS:S3 Bucket"
     }
     
 }
