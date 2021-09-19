@@ -33,7 +33,7 @@ const CommentForm = ({endpoints,post,commentrefresh}) => {
 		
 		event.preventDefault();
 		try{
-			console.error(axios.post(`${HOST}/comments`,comment));
+			axios.post(`${HOST}/comments`,comment)
 			setComment({name:"",email:"",comment:""});
 			commentrefresh(post);
 		}
