@@ -45,7 +45,7 @@ export default function VolunteerForm() {
 	};
 
 	const statusHandler = (data) => {
-		console.log(data);
+		
 		if (data.status === 200) {
 			setstatus(successModal);
 		} else {

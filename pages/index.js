@@ -41,21 +41,23 @@ function Home({photos,recentEvent}) {
 		setEventCount(state.events.length)
 		
 	}, [state.events]);
-	console.log(state.events.length)
+
 
 	const latestEvent = () => {
 		
 		try {
 
-				const component = state.events.slice((state.events.length-4),state.events.length-1).map((events) => {
+				const component = state.events.slice((state.events.length-4),state.events.length-1).map((events,index) => {
 					return (
 						<li className='py-2 ' key={events.id}>
+							<ScrollAnimation animateOnce={true} animateIn="animate__fadeIn" >
 							<RecentEvent
 								eventName={events.Name}
 								link={`/eventdetail/${events.id}`}
 								date={events.startdate}
 								img={`${HOST}${events.headerimage.formats.thumbnail.url}`}
 							/>
+							</ScrollAnimation>
 						</li>
 					);
 				});
@@ -67,7 +69,6 @@ function Home({photos,recentEvent}) {
 			
 			
 		} catch (err) {
-			console.log("work");
 			return <div className='text-white'>hhh</div>;
 		}
 	};
@@ -242,44 +243,24 @@ function Home({photos,recentEvent}) {
 export default Home;
 
 export  async  function getServerSideProps(){
+	let photos;
+	
 
 	try{
-	
-	const count= await axios.get(`${HOST}/photoalbums/count`);
-	
-	if(count.data>1){
-	let data=parseInt(Math.random() * (count.data - 1) + 1);
-	const photo=await axios.get(`${HOST}/photoalbums/${data}`);
-	
-	const RecentEvent=await axios.get(`${HOST}/recent-events`);
-	let recentEvent=RecentEvent.data;
-
-	let photos=photo.data;
-
+	const res1=await axios.get(`${HOST}/recent-events`)
+	const recentEvent=res1.data;
+	const res= await axios.get(`${HOST}/photoalbums`);
+	const photo=res.data;
+		if(photo.length>1){
+			let random=parseInt(Math.random()*photo.length);
+			photos=photo[random];
+		}
 	return{
 		props:{
 			photos,
 			recentEvent
 		}
 	}
-
-	}
-
-	else{
-		const photo=await axios.get(`${HOST}/photoalbums`)
-		const photos=photo.data.length>0?photo.data[0]:[];
-		const RecentEvent=await axios.get(`${HOST}/recent-events`);
-		let recentEvent=RecentEvent.data;
-		return{
-			props:{
-				photos,
-				recentEvent
-			}
-		}
-
-	}
-
-
 
 	
 	}catch(err){
