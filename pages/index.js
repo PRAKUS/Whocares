@@ -32,6 +32,7 @@ function Home({photos,recentEvent}) {
 	
 
 	const { state } = useContext(EventContext);
+	
 
 	const[eventCount,setEventCount]=useState(0);
 	const [list, setlist] = useState();
@@ -231,8 +232,8 @@ function Home({photos,recentEvent}) {
 				</div>
 			</section>
 			<div className='section-mgap'>
-				
-				<PhotoGallery photo={photos}/>  
+						
+				<PhotoGallery photo={photos[parseInt(Math.random()*photos.length)]}/>  
 			</div>
 		</div>
 	);
@@ -243,27 +244,27 @@ function Home({photos,recentEvent}) {
 export default Home;
 
 export  async  function getServerSideProps(){
-	let photos;
+	
 	
 
-	try{
+	try
+	{
+	
 	const res1=await axios.get(`${HOST}/recent-events`)
 	const recentEvent=res1.data;
 	const res= await axios.get(`${HOST}/photoalbums`);
-	const photo=res.data;
-		if(photo.length>1){
-			let random=parseInt(Math.random()*photo.length);
-			photos=photo[random];
-		}
-	return{
-		props:{
-			photos,
-			recentEvent
-		}
-	}
-
+	const photos=res.data;
 	
-	}catch(err){
+
+		return{
+			props:{
+				photos,
+				recentEvent
+			}
+		}
+	
+	}
+	catch(err){
 		console.log(err)
 		return{
 			props:{
