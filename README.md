@@ -29,7 +29,12 @@ Features:{
 
 ## STORY (Behind Secenc)
 
-    I love web devlopment and I always want to help people with this skill. One day surfing in Facebook I found the organisation called WHO cares and found that they were working for people who dont have any one. I was very fasinated to see such people working for society wwithout any expectantion of return.I visited their FB page looking their work and found something missing. Ya you guess correct they did not have website so, I want to help them and start creating one, I create version 1.0.0 in react but ui was not so great and I was not satisified with one, then again i started from scratch and created new one in next.js which is my first project. It took me around 15 days of work  around 4 hour daily to build this web app.
+    I love web devlopment and I always want to help people with this skill. One day surfing in Facebook I found the organisation called WHO 
+    cares and found that they were working for people who dont have any one. I was very fasinated to see such people working for society wwithout any 
+    expectantion of return.I visited their FB page looking their work and found something missing. Ya you guess correct they did not have website so,
+    I want to help them and start creating one, I create version 1.0.0 in react but ui was not so great and I was not satisified with one, 
+    then again i started from scratch and created new one in next.js which is my first project. It took me around 15 days of work  around 4 hour 
+    daily to build this web app.
 
 
 ## What I Learn
