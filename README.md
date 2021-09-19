@@ -8,8 +8,7 @@ Tech Stack: {
     "Forntend":{
         "Framework":["Next.js","React-Bootstrap-4.0"],
         "Library":["Axios","Scroll Animation"]
-        
-    }
+        }
     "Backend":{
         "CMS":"Strapi",
         "Database":"MongoDB(ATLAS)",
