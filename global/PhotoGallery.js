@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import { Row, Col,Carousel } from "react-bootstrap";
 import {IoMdClose} from "react-icons/io"
-import{HOST} from "../env/env"
 import ScrollAnimation from "react-animate-on-scroll";
 
 
@@ -9,7 +8,7 @@ function ImageContainer(props) {
 	return (
 		<Col xs={4} sm={4} md={4} onClick={props.onClick}  className='p-1 cursor overflow-hidden h-100  photo'>
 			<ScrollAnimation animateOnce={true} animateIn="animate__fadeIn" delay={100*props.index}>
-			<img className='w-100  ' src={`${HOST}${props.src}`} alt='' />
+			<img className='w-100  ' src={`${props.src}`} alt='' />
 			</ScrollAnimation>
 		</Col>
 	);
@@ -41,7 +40,7 @@ function PhotoGallery({photo}) {
 							return(<Carousel.Item key={index}>
 		
 								<p className="text-center">
-								<img key={index} index={index} src={`${HOST}${photo.url}`}  className="h-100" style={{maxHeight:"600px" ,margin:"5% 0"}} />
+								<img key={index} index={index} src={`${photo.url}`}  className="h-100" style={{maxHeight:"600px" ,margin:"5% 0"}} />
 								</p>
 								
 								</Carousel.Item>)}

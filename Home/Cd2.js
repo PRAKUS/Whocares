@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import {HOST} from "../env/env"
+
 
 import Link from "next/link" 
 
@@ -15,7 +15,7 @@ const patt=/\n/;
 		<Card className="cursor" style={{maxWidth:"400px"}}>
 	
 		<>
-			<Card.Img variant='top' src={`${HOST}${event.headerimage.url}`} />
+			<Card.Img variant='top' src={`${event.headerimage.url}`} />
 			<Card.Body>
 				<Card.Title className="myprimary-text" >{event.causename}</Card.Title>
 				<Card.Text className="mysecondary-text " >

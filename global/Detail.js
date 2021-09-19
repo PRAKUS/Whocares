@@ -37,7 +37,7 @@ const Detail = ({ post ,endpoints}) => {
 						<Card style={{ maxHeight: "400px" }} className='overflow-hidden'>
 							<Image
 								className='w-100 '
-								src={`${HOST}${post.headerimage.url}`}
+								src={`${post.headerimage.url}`}
 								alt="coverimage"
 							/>
 							<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>

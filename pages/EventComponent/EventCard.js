@@ -3,7 +3,7 @@ import { Card, Col, Row } from "react-bootstrap";
 import { ImLocation2, ImClock } from "react-icons/im";
 import Link from "next/link";
 
-import {HOST} from "../../env/env"
+
 
 const EventCard = (props) => {
 
@@ -65,7 +65,7 @@ const EventCard = (props) => {
 			<Link href={`${props.endpoint}/${events.id}`} passHref>
 				<Card className=' overflow-hidden eventimgbg' >
 					<Card.Img
-						src={`${HOST}${events.headerimage.url}`}
+						src={`${events.headerimage.url}`}
 						className='h-100 w-100' 
 					/>
 					<Card.ImgOverlay className='banner-overlay'>
