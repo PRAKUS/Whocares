@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Card, Row, Col } from "react-bootstrap";
 import { ImLocation2, ImClock } from "react-icons/im";
 import Link from "next/link";
-import {HOST} from "../env/env"
 
 
 function GEventCard(props) {
