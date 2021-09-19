@@ -19,8 +19,8 @@ function Events({recentEvents}) {
 	const latestEvent = () => {
 		try {
 			
-				const component = state.events.map((events) => {
-					return <EventCard key={events.id} event={events} endpoint={"eventdetail"}  />;
+				const component = state.events.map((events,index) => {
+					return <EventCard key={index} event={events} endpoint={"eventdetail"}  />;
 				});
 				setlist(
 					component.sort(function (a, b) {

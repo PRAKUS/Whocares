@@ -170,50 +170,31 @@ export default About;
 
 
 export  async  function getServerSideProps(){
+	let photos;
 	
 	try{
 	
-		const count= await axios.get(`${HOST}/photoalbums/count`);
-		
-		if(count.data>1){
-		let data=parseInt(Math.random() * (count.data - 1) + 1);
-		const photo=await axios.get(`${HOST}/photoalbums/${data}`);
+	const res= await axios.get(`${HOST}/photoalbums`);
+	const photo=res.data;
+		if(photo.length>1){
+			let random=parseInt(Math.random()*photo.length);
+			photos=photo[random];
+		}
+	return{
+		props:{
+			photos
+			
+		}
+	}
+
 	
-	
-		let photos=photo.data;
-	
+	}catch(err){
+		console.log(err)
 		return{
 			props:{
-				photos,
-				recentEvent
-			}
-		}
-	
-		}
-	
-		else{
-			const photo=await axios.get(`${HOST}/photoalbums`)
-			const photos=photo.data.length>0?photo.data[0]:[];
-		
-			return{
-				props:{
-					photos,
+				photos:[]
 				
-				}
-			}
-	
-		}
-	
-	
-	
-		
-		}catch(err){
-			console.log(err)
-			return{
-				props:{
-					photos:[],
-					recentEvent:[]
-				}
 			}
 		}
+	}
 }

@@ -19,6 +19,8 @@ const Detail = ({ post ,endpoints}) => {
 			`${HOST}/${endpoints}/${req.id}`,
 		);
 		const post = res.data.comments;
+
+		
 		setComment(post)}catch(err){console.log(err)}
 		
 	}

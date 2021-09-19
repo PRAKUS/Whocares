@@ -37,7 +37,7 @@ function Gallery({photo}) {
 
     const prev=()=>{
         let element=slides.current;
-        console.log(element.children[0].offsetWidth)
+      
         if(slideCount<element.children.length/parseInt(window.screen.width/350)-1){
             let newSlides=slideCount+1;
             setslidesCount(newSlides);
@@ -79,7 +79,7 @@ function Gallery({photo}) {
                     <BiRightArrow className=" button  buttonRight " onClick={prev} />
              
                 <div ref={slides} className="d-flex flex-row"  >
-                    {console.log(photo)}
+                   
                {photo.map((photo,index)=>{
                 return(<Album key={index} ablumname={photo.albumname} photo={photo.photos[0].url} onClick={()=>{setSelectlbum(index)}} />)
                    
@@ -106,6 +106,7 @@ const res= await axios.get(`${HOST}/photoalbums`);
 
 
 const photo=res.data;
+
 
 
 return{

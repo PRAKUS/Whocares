@@ -8,7 +8,7 @@ const [show, setShow] = useState(false);
 
 
 useEffect(()=>{
-	console.log(props)
+
 	if(props.status){
 		setShow(true);
 	}
@@ -17,17 +17,17 @@ useEffect(()=>{
 },[props.status])
 
 const statusHandler = () => {
-    console.log(props.status)
+   
 
     if (props.status === 200) {
         setstatus(successModal);
 		
-        console.log("scmodal")
+       
         return;
     } else {
         setstatus(errmodal);
 		
-        console.log(props.status)
+       
     }
 
 };

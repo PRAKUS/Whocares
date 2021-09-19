@@ -5,7 +5,7 @@ import {HOST} from "../env/env"
 const CommentForm = ({endpoints,post,commentrefresh}) => {
 	
 
-	const[comment,setComment]=useState({name:"",email:"",comment:"",event:{},recent_event:{}})
+	const[comment,setComment]=useState({name:"",email:"",comment:""})
 
 	const InputHandler=(event)=>{
 		event.preventDefault();
@@ -15,13 +15,14 @@ const CommentForm = ({endpoints,post,commentrefresh}) => {
 		}));
 	}
 	useEffect(()=>{
-		
+	
 		if(endpoints==="events"){
-			setComment({...comment,event:post})
+		
+			setComment({...comment,event:post._id})
 		}
 		if(endpoints==="recent-events"){
-			console.log("RC",post)
-			setComment({...comment,recent_event:post})
+		
+			setComment({...comment,recent_event:post._id})
 		}
 		
 	},[endpoints.value])
@@ -29,18 +30,15 @@ const CommentForm = ({endpoints,post,commentrefresh}) => {
 	
 
 	const submitHandler= async(event)=>{
+		
 		event.preventDefault();
 		try{
-		
-			const req=axios.post(`${HOST}/comments/`,comment);
-			
-			setComment({name:"",email:"",comment:"",event:{},recent_event:{}});
-
+			console.error(axios.post(`${HOST}/comments`,comment));
+			setComment({name:"",email:"",comment:""});
 			commentrefresh(post);
-			
 		}
 		catch (err){
-				console.log(err);
+			
 		}
 	}
 	

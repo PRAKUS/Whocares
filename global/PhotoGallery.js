@@ -2,19 +2,22 @@ import React,{useState} from "react";
 import { Row, Col,Carousel } from "react-bootstrap";
 import {IoMdClose} from "react-icons/io"
 import{HOST} from "../env/env"
+import ScrollAnimation from "react-animate-on-scroll";
 
 
 function ImageContainer(props) {
 	return (
 		<Col xs={4} sm={4} md={4} onClick={props.onClick}  className='p-1 cursor overflow-hidden h-100  photo'>
+			<ScrollAnimation animateOnce={true} animateIn="animate__fadeIn" delay={100*props.index}>
 			<img className='w-100  ' src={`${HOST}${props.src}`} alt='' />
+			</ScrollAnimation>
 		</Col>
 	);
 }
 
 function PhotoGallery({photo}) {
 
-	console.log(photo)
+
 	const[singlePhoto,setSinglePhoto]=useState("none");
 	const[sliderCount,setSliderCount]=useState(0);
 	let photos=[]
@@ -29,7 +32,7 @@ function PhotoGallery({photo}) {
 
 	return (
 		<>
-		{photos.length>0?<><div  className="photoDisplay w-100  section-mgap"   style={{display:singlePhoto,}}>
+		{photos.length>0?<><div  className="photoDisplay w-100  "   style={{display:singlePhoto,marginTop:"60px"}}>
 				
 				<IoMdClose color="#fff" size={"2em"} className="cursor buttonRight"  style={{position:"absolute",zIndex:"99"}} onClick={()=>{setSinglePhoto("none")}}/>
 				
@@ -38,7 +41,7 @@ function PhotoGallery({photo}) {
 							return(<Carousel.Item key={index}>
 		
 								<p className="text-center">
-								<img key={index}  src={`${HOST}${photo.url}`}  className="h-100" style={{maxHeight:"600px" ,margin:"5% 0"}} />
+								<img key={index} index={index} src={`${HOST}${photo.url}`}  className="h-100" style={{maxHeight:"600px" ,margin:"5% 0"}} />
 								</p>
 								
 								</Carousel.Item>)}
@@ -58,7 +61,9 @@ function PhotoGallery({photo}) {
 					<Row>
 						{photos.map((photo,index)=>{
 							return(
-							<ImageContainer key={index} src={photo.url}  onClick={()=>{setSliderCount(index);setSinglePhoto("")}} />
+								
+							<ImageContainer key={index} index={index} src={photo.url}  onClick={()=>{setSliderCount(index);setSinglePhoto("")}} />
+							
 							)})}
 						
 					</Row> 

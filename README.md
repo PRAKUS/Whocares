@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+Author:Pramod Thapa,
+Version:1.0.2
+Client:NGO
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Tech Stack: {
+    "Forntend":{
+        "Framework":["Next.js","React-Bootstrap-4.0"],
+        "Library":["Axios","Scroll Animation"]
+        
+    }
+    "Backend":{
+        "CMS":"Strapi",
+        "Database":"MongoDB(ATLAS)",
+        "Stroge":"AWS:S3 Bucket"
+    }
+}
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Features:{
+    Full Photogallery,
+    Blog,
+    Form Registration 
+}
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## STORY (Behind Secenc)
 
-## Learn More
+    I love web devlopment and I always want to help people with this skill. 
+One day surfing in Facebook I found the organisation called WHO cares and found that they were working for people who dont have any one. I was very fasinated to see such people working for society wwithout any expectantion of return.I visited their FB page looking their work and found something missing. Ya you guess correct they did not have website so, I want to help them and start creating one, I create version 1.0.0 in react but ui was not so great and I was not satisified with one, then again i started from scratch and created new one in next.js which is my first project. It took me around 15 days of work  around 4 hour daily to build this web app.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## What I Learn
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This is my first project with Nextjs so i learn lot of things of Next js.
+I also learn how to deploy the project in vercel as well as in heroku.
+I learn about the deployment and connection of mongodb with strapi as weel as file upload in sw3 Buket.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+comment in this project.
+You can copy and deploy this project if you want to.

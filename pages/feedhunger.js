@@ -1,9 +1,10 @@
 import axios from "axios";
 import React,{useState,useEffect} from "react";
-import { Card, Row, Col, Form, Button, Image,Modal } from "react-bootstrap";
-
+import { Card, Row, Col, Form, Button, Image,Modal ,Carousel} from "react-bootstrap";
+import { ThankyouCard } from "../Home";
 import {HOST} from "../env/env";
 import Head from "next/head";
+import ScrollAnimation from "react-animate-on-scroll";
 
 
 function FeedHunger() {
@@ -38,7 +39,7 @@ const submitHandler=async(event)=>{
 	setInput({first_name:"",last_name:"",occasion:"",phone_number:""})
 }
 const statusHandler = (data) => {
-	console.log(data);
+	
 	if (data.status === 200) {
 		setstatus(successModal);
 	} else {
@@ -140,6 +141,7 @@ const successModal = () => {
 
 					<Row>
 						<Col xs={12} sm={12} md={6}>
+							<ScrollAnimation animateOnce={true} animateIn="animate__fadeInLeft" >
 							<Form onSubmit={submitHandler}>
 								<Form.Row>
 									<Form.Group as={Col} controlId='firstname'>
@@ -166,16 +168,41 @@ const successModal = () => {
 									Contact Us
 								</Button>
 							</Form>
+							</ScrollAnimation>
 						</Col>
 						<Col className='d-flex justify-content-center align-items-center'>
+							<ScrollAnimation animateOnce={true} animateIn="animate__fadeIn">
 							<Image src='images/icon/fooddonation.png' className="clipcart w-100" alt=""/>
+							</ScrollAnimation>
 						</Col>
 					</Row>
 			
 				</div>
 			</section>
 
-			<section></section>
+			<section className=' '>
+				<div className='container section-pgap section-pbgap'>
+					<p className='text-center myprimary-text h2 mb-0 pb-3'>
+						Thank you for your support
+					</p>
+					<p className='text-center my-orange m-0 sm-font m-0'>
+						Message from our suvrival
+					</p>
+				
+						<Carousel controls={true} indicators={false}>
+							<Carousel.Item>
+								<ThankyouCard />
+							</Carousel.Item>
+							<Carousel.Item>
+								<ThankyouCard />
+							</Carousel.Item>
+							<Carousel.Item>
+								<ThankyouCard />
+							</Carousel.Item>
+						</Carousel>
+					
+				</div>
+			</section>
 		</div>
 	);
 }
