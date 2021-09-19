@@ -6,7 +6,7 @@ import Link from "next/link"
 
 function Cd2({event,url}) {
 
-	const date=new Date(event.created_at)
+	const date=new Date(event.createdAt)
 const patt=/\n/;
 	
 	return (

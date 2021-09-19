@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import { Row, Col,Carousel } from "react-bootstrap";
 import {IoMdClose} from "react-icons/io"
+
 import ScrollAnimation from "react-animate-on-scroll";
 
 
@@ -16,65 +17,68 @@ function ImageContainer(props) {
 
 function PhotoGallery({photo}) {
 
-
+	
 	const[singlePhoto,setSinglePhoto]=useState("none");
 	const[sliderCount,setSliderCount]=useState(0);
-	let photos=[]
-	try{
-	 	photos=photo.photos===undefined?[]:photo.photos;
-	}
-	catch{
-		photos=[]
+	
+
+	const gallery=()=>{
+		return(<><div  className="photoDisplay w-100  "   style={{display:singlePhoto,marginTop:"70px"}}>
+				
+		<IoMdClose color="#fff" size={"2em"} className="cursor buttonRight"  style={{position:"absolute",zIndex:"99"}} onClick={()=>{setSinglePhoto("none")}}/>
+		
+			<Carousel  indicators={false} activeIndex={sliderCount} onSelect={(selectIndex,e)=>{setSliderCount(selectIndex)}} >	
+				{photo.photos.map((photo,index)=>{
+					return(<Carousel.Item key={index}>
+
+						<p className="text-center">
+						<img key={index} index={index} src={`${photo.url}`}  className="h-100" style={{maxHeight:"600px" ,margin:"5% 0"}} />
+						</p>
+						
+						</Carousel.Item>)}
+						)
+				} 
+				
+			</Carousel>	
+		
+		</div>
+		<div className='container section-pbgap'>
+			<header className='section-pbgap'>
+				<p className='text-center myprimary-text h2 text-capitalize'>{photo.albumname}</p>
+				<p className='text-center my-orange'>
+					{photo.description}
+				</p>
+			</header>
+		
+			<Row>
+				{photo.photos.map((photo,index)=>{
+					return(
+						
+					<ImageContainer key={index} src={photo.url}  onClick={()=>{setSliderCount(index);setSinglePhoto("")}} />
+					
+					)})}
+				
+			</Row> 
+			
+		</div></>)
 	}
 
-	
+	const error=()=>{
+		return	(<div className='container section-pbgap'>
+		<header className='section-pbgap'>
+			<p className='text-center myprimary-text h2 text-capitalize'>Photo Not Available</p>
+			<p className='text-center my-orange'>
+				We will update you soon
+			</p>
+		</header>
+		
+	</div>)
+	} 
 
 	return (
 		<>
-		{photos.length>0?<><div  className="photoDisplay w-100  "   style={{display:singlePhoto,marginTop:"60px"}}>
-				
-				<IoMdClose color="#fff" size={"2em"} className="cursor buttonRight"  style={{position:"absolute",zIndex:"99"}} onClick={()=>{setSinglePhoto("none")}}/>
-				
-					<Carousel  indicators={false} activeIndex={sliderCount} onSelect={(selectIndex,e)=>{setSliderCount(selectIndex)}} >	
-						{photos.map((photo,index)=>{
-							return(<Carousel.Item key={index}>
-		
-								<p className="text-center">
-								<img key={index} index={index} src={`${photo.url}`}  className="h-100" style={{maxHeight:"600px" ,margin:"5% 0"}} />
-								</p>
-								
-								</Carousel.Item>)}
-								)
-						} 
-						
-					</Carousel>	
-				
-				</div>
-				<div className='container section-pbgap'>
-					<header className='section-pbgap'>
-						<p className='text-center myprimary-text h2 text-capitalize'>{photo.albumname}</p>
-						<p className='text-center my-orange'>
-							{photo.description}
-						</p>
-					</header>
-					<Row>
-						{photos.map((photo,index)=>{
-							return(
-								
-							<ImageContainer key={index} index={index} src={photo.url}  onClick={()=>{setSliderCount(index);setSinglePhoto("")}} />
-							
-							)})}
-						
-					</Row> 
-				</div></>:<div className='container section-pbgap'>
-					<header className='section-pbgap'>
-						<p className='text-center myprimary-text h2 text-capitalize'>Photo Not Available</p>
-						<p className='text-center my-orange'>
-							We will update you soon
-						</p>
-					</header>
-					
-				</div>}
+	
+		{photo===undefined?error():gallery()}
 		</>)
 
 

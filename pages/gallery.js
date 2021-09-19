@@ -12,7 +12,7 @@ const Album=(props)=>{
     return (
     <div className="cursor overflow-hidden " style={{flex:"0 0 350px"}}  onClick={props.onClick}>
     <Card className=""> 
-        <Card.Img  src={`${HOST}${props.photo}`}   />
+        <Card.Img  src={`${props.photo}`}   />
 		<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
 			<p className='text-white p1 '>{props.ablumname}</p>
 		</Card.ImgOverlay>
@@ -106,6 +106,8 @@ const res= await axios.get(`${HOST}/photoalbums`);
 
 
 const photo=res.data;
+
+
 
 
 
