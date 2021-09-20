@@ -15,7 +15,7 @@ function GetInvolved() {
 				<title>Get Involved:Whocares</title>
 			</Head>
 			<section className='overflow-hidden'>
-				<Card>
+				<Card className='overflow-hidden banner2'>
 					<Card.Img src='images/about.png' alt=""/>
 					<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
 						<p className='text-white h1 '>

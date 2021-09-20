@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Card, Col, Row} from "react-bootstrap";
+import { Card, Col, Row,Image} from "react-bootstrap";
 import {  PhotoGallery, StaffList } from "../global";
 import { MissionCard} from "../Home";
 import { IoFastFood, IoPeople } from "react-icons/io5";
@@ -20,8 +20,8 @@ function About({photos}) {
 				<title>About:Whocares</title>
 			</Head>
 			<section>
-				<Card>
-					<Card.Img src='images/about.png' />
+				<Card className="banner2 overflow-hidden">
+					<Card.Img style={{marginTop:"-10%"}} src='images/banner1.png' />
 					<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
 						<p className='text-white h1 '>About</p>
 					</Card.ImgOverlay>
@@ -30,7 +30,7 @@ function About({photos}) {
 			<section className='container section-mgap'>
 				<Row>
 					<Col xs={12} sm={12} md={4}>
-
+						<Image src="" alt="" />
 					</Col>
 					<Col xs={12} sm={12} md={8} className=''>
 						<p className='my-orange'>About Us</p>

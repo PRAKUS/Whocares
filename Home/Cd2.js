@@ -11,10 +11,13 @@ const patt=/\n/;
 	
 	return (
 		
-		<Link href={url} passHref>
+		
+		
 		<Card className="cursor" style={{maxWidth:"400px"}}>
 	
-		<>
+	
+		<Link href={url} passHref>
+			<a className="text-decoration-none">
 			<Card.Img variant='top' src={`${event.headerimage.url}`} />
 			<Card.Body>
 				<Card.Title className="myprimary-text" >{event.causename}</Card.Title>
@@ -27,11 +30,11 @@ const patt=/\n/;
 			<Card.Footer>
 				<small className='text-muted'>Added on {date.toString().slice(0,10)} </small>
 			</Card.Footer>
-			</>
-		
-		
+			</a>
+			</Link>
 		</Card> 
-		</Link>
+	
+	
 		
 	
 		 

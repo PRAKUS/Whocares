@@ -5,7 +5,13 @@ body {
 .cursor {
 	cursor: pointer;
 }
-
+.banner{
+	transition: all 0.5s;
+	max-height: 600px;
+}
+.banner2{
+	max-height: 300px;
+}
 
 .photoDisplay{
 	position: -webkit-sticky;
@@ -195,6 +201,10 @@ height:250px;
 	margin: 0 12%;
 	padding-top: 3%;
 }
+.geventimgbg{
+	transition: all 0.5s;
+	height:330px;
+}
 
 @media (min-width:801px)and (max-width:1200px){
 	.sliderContainer{
@@ -222,6 +232,10 @@ height:250px;
 		max-width: 900px;
 		margin: 0 4%;
 		padding-top: 3%;
+	}
+	.geventimgbg{
+		transition: all 0.5s;
+		height:280px;
 	}
 }
 
@@ -277,7 +291,10 @@ height:250px;
 		transition: all 0.5s;
 		font-size: 13px;
 	}
-	
+	.geventimgbg{
+		transition: all 0.5s;
+		height:240px;
+	}
 
 }
 @media (max-width: 420px) {
@@ -294,7 +311,7 @@ height:250px;
 
 	.eventimgbg{
 		transition: all 0.5s;
-		max-height:400px;
+		max-height:200px;
 		}
 	.sm-card {
 		transition: all 0.5s;
@@ -336,6 +353,10 @@ height:250px;
 		max-width: 500px;
 		margin: 0 2%;
 		padding-top: 3%;
+	}
+	.geventimgbg{
+		transition: all 0.5s;
+		height:200px;
 	}
 }
 

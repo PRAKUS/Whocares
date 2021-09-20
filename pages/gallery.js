@@ -11,10 +11,11 @@ const Album=(props)=>{
 
     return (
     <div className="cursor overflow-hidden " style={{flex:"0 0 350px"}}  onClick={props.onClick}>
-    <Card className=""> 
+    <Card > 
         <Card.Img  src={`${props.photo}`}   />
-		<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
-			<p className='text-white p1 '>{props.ablumname}</p>
+		<Card.ImgOverlay className='banner-overlay   '>
+			<p className='text-white h2 text-center '>{props.ablumname}</p>
+            <p className='text-white p1 text-center'>{props.description}</p>
 		</Card.ImgOverlay>
     </Card>
 
@@ -63,7 +64,7 @@ function Gallery({photo}) {
 				<title>Gallery:Whocares</title>
 			</Head>
            <section >
-				<Card >
+				<Card className='overflow-hidden banner2'>
 					<Card.Img  src='images/about.png' />
 					<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
 						<p className='text-white h1 '>Memories to be cheeries</p>
@@ -81,7 +82,7 @@ function Gallery({photo}) {
                 <div ref={slides} className="d-flex flex-row"  >
                    
                {photo.map((photo,index)=>{
-                return(<Album key={index} ablumname={photo.albumname} photo={photo.photos[0].url} onClick={()=>{setSelectlbum(index)}} />)
+                return(<Album key={index} ablumname={photo.albumname} description={photo.description} photo={photo.photos[0].url} onClick={()=>{setSelectlbum(index)}} />)
                    
                })}
                </div>

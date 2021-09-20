@@ -41,7 +41,7 @@ function Events({recentEvents}) {
 				<title>Event:Whocares</title>
 			</Head>
 			<section>
-				<Card>
+				<Card className="overflow-hidden banner2">
 					<Card.Img src='images/about.png' />
 					<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
 						<p className='text-white h1 '>Our Events</p>
@@ -60,7 +60,7 @@ function Events({recentEvents}) {
 				<div className='container  section-pgap section-pbgap'>
 					<p className='text-center h2 myprimary-text  '> Our Pasts Events</p>
 					<Row>
-						{recentEvents.length>0?recentEvents.map((events,index)=>{return <EventCard key={index} event={events} endpoint={"recentevent"}/>}):<Col><p className="text-center">No events till now</p></Col> }
+						{recentEvents.length>0?recentEvents.slice(0,9).map((events,index)=>{return <EventCard key={index} index={index} event={events} endpoint={"recentevent"}/>}).sort((a,b)=>{return a-b}):<Col><p className="text-center">No events till now</p></Col> }
 					</Row>
 				</div>
 			</section>

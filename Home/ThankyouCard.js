@@ -1,22 +1,22 @@
 import React from "react";
 import { Card, Image } from "react-bootstrap";
-function ThankyouCard() {
+function ThankyouCard({fooddonar}) {
 	return (
 		<div className='d-flex justify-content-center align-items-center'>
 			<Card className='bg-transparent w-50  border-0 px-4 d-flex align-items-center p-3'>
-				<Image
-					className='profilepic w-100 '
-					src='images/icon/profilepic.jpg'
-					roundedCircle
+				<div className='profilepic overflow-hidden  rounded-circle'>
+					<Image
+					
+					src={fooddonar.donarpicture.formats.thumbnail.url}
+					style={{height:"200px",width:"100%"}}
 					alt="profile"
 				/>
-				<Card.Text className='text-center myprimary-text'>
-					Loresm sister
+				</div>
+				<Card.Text className='text-center myprimary-text mt-3 h5'>
+					{fooddonar.donarname}
 				</Card.Text>
 				<Card.Text className='text-center mysecondary-text'>
-					Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit
-					enim labore culpa sint ad nisi Lorem pariatur mollit ex esse
-					exercitation amet. Nisi anim cupidatat duis.
+				{fooddonar.thankyoumessage}
 				</Card.Text>
 			</Card>
 		</div>
