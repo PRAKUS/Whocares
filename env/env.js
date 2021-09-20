@@ -1,1 +1,1 @@
-export const HOST="https://whocarecms.herokuapp.com/"
+export const HOST="https://whocarecms.herokuapp.com"
