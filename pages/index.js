@@ -27,7 +27,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 
 
-function Home({photos,recentEvent}) {
+function Home({photos,recentEvent,donar}) {
 
 	
 
@@ -56,7 +56,7 @@ function Home({photos,recentEvent}) {
 								eventName={events.Name}
 								link={`/eventdetail/${events.id}`}
 								date={events.startdate}
-								img={`${HOST}${events.headerimage.formats.thumbnail.url}`}
+								img={`${events.headerimage.formats.thumbnail.url}`}
 							/>
 							</ScrollAnimation>
 						</li>
@@ -78,7 +78,7 @@ function Home({photos,recentEvent}) {
 			<Head>
 				<title>Home:Whocares</title>
 			</Head>
-			<section className='overflow-hidden'>
+			<section className='overflow-hidden banner'>
 				<Card>
 					<Card.Img src='images/about.png' />
 					<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
@@ -159,20 +159,14 @@ function Home({photos,recentEvent}) {
 					<p className='text-center myprimary-text h2 mb-0 pb-3'>
 						Thank you for your support
 					</p>
-					<p className='text-center my-orange m-0 sm-font m-0'>
-						Message from our suvrival
-					</p>
+					
 				
 						<Carousel controls={true} indicators={false}>
-							<Carousel.Item>
-								<ThankyouCard />
-							</Carousel.Item>
-							<Carousel.Item>
-								<ThankyouCard />
-							</Carousel.Item>
-							<Carousel.Item>
-								<ThankyouCard />
-							</Carousel.Item>
+						{donar.map((fooddonar,index)=>{
+								return(<Carousel.Item key={index}>
+									<ThankyouCard fooddonar={fooddonar}/>
+								</Carousel.Item>)
+							})}
 						</Carousel>
 					
 				</div>
@@ -219,16 +213,19 @@ function Home({photos,recentEvent}) {
 						cillum sint consectetur cupidatat..
 					</p>
 					{recentEvent.length>0?
+					<ScrollAnimation animateOnce={true} animateIn='animate__fadeInUp'>
 					<CardDeck className='section-pgap section-pbgap'>
+					
 							
-						{recentEvent.map((event, index)=>{
+						{recentEvent.slice(0,4).map((event, index)=>{
 							
 							
 								return (<Cd2 key={index} event={event} url={`/recentevent/${event.id}`}/>)
-						})}
+						 }).sort((a,b)=>{return a-b})} 
+						 {/* first sort , limit, map */}
 					
 						
-					</CardDeck>:<p className="text-center mt-4 section-pbgap">No Recent Event updated</p>}
+					</CardDeck></ScrollAnimation>:<p className="text-center mt-4 section-pbgap">No Recent Event updated</p>}
 				</div>
 			</section>
 			<div className='section-mgap'>
@@ -245,19 +242,22 @@ export default Home;
 
 export  async  function getServerSideProps(){
 	
-	
+	// 9578286
+	// DC7D66
 
 	try
 	{
-	
-	const res1=await axios.get(`${HOST}/recent-events`)
-	const recentEvent=res1.data;
 	const res= await axios.get(`${HOST}/photoalbums`);
 	const photos=res.data;
+	const res1=await axios.get(`${HOST}/recent-events`)
+	const recentEvent=res1.data;
+	const res2 =await axios.get(`${HOST}/food-donars`);
+	const donar=res2.data;
 	
 
 		return{
 			props:{
+				donar,
 				photos,
 				recentEvent
 			}
@@ -268,6 +268,7 @@ export  async  function getServerSideProps(){
 		console.log(err)
 		return{
 			props:{
+				donar:[],
 				photos:[],
 				recentEvent:[]
 			}

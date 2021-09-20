@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { ImLocation2, ImClock } from "react-icons/im";
 import Link from "next/link";
+import ScrollAnimation from "react-animate-on-scroll";
 
 
 
@@ -61,12 +62,14 @@ const EventCard = (props) => {
 		}
 	};
 	return (
-		<Col key={props.key} xsm={12} sm={12} md={6} lg={4} className='mt-4 cursor'>
+		<Col xsm={12} sm={12} md={6} lg={4} className='mt-4 cursor'>
+			<ScrollAnimation animateOnce={true} delay={100*props.index} animateIn="animate__fadeIn">
 			<Link href={`${props.endpoint}/${events.id}`} passHref>
+				<a>
 				<Card className=' overflow-hidden eventimgbg' >
 					<Card.Img
 						src={`${events.headerimage.url}`}
-						className='h-100 w-100' 
+						className=' w-100' 
 					/>
 					<Card.ImgOverlay className='banner-overlay'>
 						<Card.Footer
@@ -106,7 +109,9 @@ const EventCard = (props) => {
 						</Card.Footer>
 					</Card.ImgOverlay>
 				</Card>
+				</a>
 			</Link>
+			</ScrollAnimation>
 		</Col>
 	);
 };

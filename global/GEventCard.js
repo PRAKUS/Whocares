@@ -58,11 +58,11 @@ function GEventCard(props) {
 	}, [props.event, events.startdate]);
 
 	return (
-		<Link href={`eventdetail/${events.id}`}>
-		
+		<Link href={`eventdetail/${events.id}`} passHref>
+			<a>
 			<Card
-				className='h-100 overflow-hidden cursor'
-				style={{ maxHeight: "350px" }}>
+				className=' overflow-hidden geventimgbg'
+				>
 				<Card.Img
 					src={`${events.headerimage.formats.medium!=undefined?events.headerimage.formats.medium.url:events.headerimage.url||events.headerimage.formats.small.url}`}
 				/>
@@ -92,6 +92,7 @@ function GEventCard(props) {
 					</Card.Footer>
 				</Card.ImgOverlay>
 			</Card>
+			</a>
 			
 			
 		</Link>

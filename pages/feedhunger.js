@@ -7,7 +7,7 @@ import Head from "next/head";
 import ScrollAnimation from "react-animate-on-scroll";
 
 
-function FeedHunger() {
+function FeedHunger({fooddonar}) {
 
 useEffect(()=>{
 	window.scroll(0, 0);
@@ -92,48 +92,55 @@ const successModal = () => {
 				}}>
 				{status}
 			</Modal>
-			<section className='overflow-hidden'>
-				<Card>
+			<section >
+				<Card className='overflow-hidden banner2'>
 					<Card.Img src='images/voklaivojanCover.png' />
 					<Card.ImgOverlay className='banner-overlay d-flex justify-content-center align-items-center'>
 						<p className='text-white h1'>Voko Lai Bojan</p>
 					</Card.ImgOverlay>
 				</Card>
 			</section>
-			<section className='container section-mgap section-mgap section-pbgap'>
-				<p className='text-center h2 m-0 my-orange'>
+			<section className='container mt-4'>
+				<p className='text-center h2 py-1 my-orange'>
 					Care for one who dont have anyone
 				</p>
-				<p className='text-center h4 myprimary-text'>
+				<p className='text-center h4  myprimary-text'>
 					Be the reason for someone smiles
 				</p>
-				<p className='font-sm  text-center  mysecondary-text p1'>
+				<p className='font-sm  text-center  mysecondary-text p1 pb-4'>
 					Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint
 					cillum sint consectetur cupidatat.
 				</p>
 				<Row>
 					<Col xs={12} sm={12} md={4}>
-						<Card className="eventimgbg">
-							<Card.Img className="h-100" src='images/oldman.png' />
+					<ScrollAnimation animateOnce={true} animateIn="animate__fadeInUp" >
+						<Card className="eventimgbg overflow-hidden">
+							<Card.Img className="h-100 " src='images/oldman.png' />
 							<Card.ImgOverlay></Card.ImgOverlay>
 						</Card>
+						</ScrollAnimation>
 					</Col>
 					<Col xs={12} sm={12} md={4}>
+					<ScrollAnimation animateOnce={true} animateIn="animate__fadeInUp" delay={100}>
 						<Card className="eventimgbg">
-							<Card.Img className="h-100 w-100" src='images/voklaivojanCover.png' />
+							<Card.Img className="h-100" src='images/voklaivojanCover.png' />
 							<Card.ImgOverlay></Card.ImgOverlay>
 						</Card>
+
+						</ScrollAnimation>
 					</Col>
 					<Col xs={12} sm={12} md={4}>
+					<ScrollAnimation animateOnce={true} animateIn="animate__fadeInUp" delay={200}>
 						<Card className="eventimgbg">
 							<Card.Img className="h-100" src='images/vlvcover.png' />
 							<Card.ImgOverlay></Card.ImgOverlay>
 						</Card>
+						</ScrollAnimation>
 					</Col>
 				</Row>
 			</section>
 
-			<section className='my-primary section-mgap section-pgap section-pbgap'>
+			<section className='my-primary section-mgap section-pgap '>
 				<div className='container'>
 					<p className='myprimary-text h2 text-left mb-4'>
 						Contat us to Donate
@@ -185,20 +192,17 @@ const successModal = () => {
 					<p className='text-center myprimary-text h2 mb-0 pb-3'>
 						Thank you for your support
 					</p>
-					<p className='text-center my-orange m-0 sm-font m-0'>
-						Message from our suvrival
-					</p>
+				
 				
 						<Carousel controls={true} indicators={false}>
-							<Carousel.Item>
-								<ThankyouCard />
-							</Carousel.Item>
-							<Carousel.Item>
-								<ThankyouCard />
-							</Carousel.Item>
-							<Carousel.Item>
-								<ThankyouCard />
-							</Carousel.Item>
+
+							{fooddonar.map((fooddonar,index)=>{
+								return(<Carousel.Item key={index}>
+									<ThankyouCard fooddonar={fooddonar}/>
+								</Carousel.Item>)
+							})}
+							
+							
 						</Carousel>
 					
 				</div>
@@ -208,3 +212,33 @@ const successModal = () => {
 }
 
 export default FeedHunger;
+
+export async function getServerSideProps(){
+	try{
+		const res =await axios.get(`${HOST}/food-donars`)
+		const fooddonar= res.data;
+		
+		console.log("food",fooddonar)
+
+		
+		return{
+			props:{
+				fooddonar,
+			}
+			
+		}
+		
+	}
+
+catch(err){
+	console.log(err)
+	
+	return{
+		props:{
+			fooddonar:[],
+		}
+		
+	}
+	
+}
+}

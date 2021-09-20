@@ -27,7 +27,10 @@ const MissionCard = (props) => {
 					{props.missioncard.des}
 				</p>
 				{props.missioncard.url?<Link href={props.missioncard.url} passHref>
+					<a className="text-decoration-none">
 					<small className='cursor mysecondary-text'>Read More</small>
+					</a>
+					
 				</Link>:""}
 				
 			</Col>

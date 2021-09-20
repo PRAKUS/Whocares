@@ -16,7 +16,8 @@ function RecentEvent(props) {
 		);
 	};
 	return (
-		<Link href={props.link}>
+		<Link href={props.link} passHref>
+			<a>
 			<Row
 				className={`${props.className} d-flex m-0 align-items-center cursor`}>
 				<Col
@@ -33,6 +34,7 @@ function RecentEvent(props) {
 					</div>
 				</Col>
 			</Row>
+			</a>
 		</Link>
 	);
 }
