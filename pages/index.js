@@ -77,6 +77,7 @@ function Home({photos,recentEvent,donar}) {
 		<div>
 			<Head>
 				<title>Home:Whocares</title>
+				<meta name="google-site-verification" content="gGPnokFRag0gS6BqOQPh-cqkpr8YlGp0b6SvUfeYEgw" />
 			</Head>
 			<section className='overflow-hidden banner'>
 				<Card>
