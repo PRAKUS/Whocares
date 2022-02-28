@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://whocares.vercel.app/</loc>
+  <lastmod>2022-02-28T17:49:33+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://whocares.vercel.app/about</loc>
+  <lastmod>2022-02-28T17:49:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://whocares.vercel.app/feedhunger</loc>
+  <lastmod>2022-02-28T17:49:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://whocares.vercel.app/oldage</loc>
+  <lastmod>2022-02-28T17:49:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://whocares.vercel.app/recentevent/6146f5c59772420016f2ea5a</loc>
+  <lastmod>2022-02-28T17:49:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://whocares.vercel.app/recentevent/614845ea6411e1458b4fab9d</loc>
+  <lastmod>2022-02-28T17:49:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://whocares.vercel.app/recentevent/614846336411e1458b4fab9f</loc>
+  <lastmod>2022-02-28T17:49:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://whocares.vercel.app/recentevent/614846636411e1458b4faba1</loc>
+  <lastmod>2022-02-28T17:49:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://whocares.vercel.app/getinvolved</loc>
+  <lastmod>2022-02-28T17:49:33+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
